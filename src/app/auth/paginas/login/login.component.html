@@ -1,5 +1,4 @@
 
-
 <head>
 
   <meta charset="utf-8">
@@ -50,16 +49,16 @@
 
 
 
-        <form action="" method="post" >
+        <form (submit)="onLogin">
         <div class="inputs">
           <i class="fas fa-envelope"></i>
-          <input type="text" name="user" placeholder="Ingresa tu correo">
+          <input type="email" [(ngModel)]="user.Xusuario" name="Xusuario" placeholder="Ingresa tu correo">
         </div>
         <div class="inputs">
           <i class="fas fa-lock"></i>
-          <input type="password" name="pass" placeholder="Contraseña">
+          <input type="password"  [(ngModel)]="user.Xpassword" name="Xpassword" placeholder="Contraseña" >
         </div>
-        <input type="submit" value="Entrar" class="boton">
+        <input type="submit" value="Entrar" class="boton" >
         </form>
 
 

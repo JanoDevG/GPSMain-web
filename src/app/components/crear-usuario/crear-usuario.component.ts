@@ -18,7 +18,7 @@ export class CrearUsuarioComponent implements OnInit {
               private router: Router,
               private toastr: ToastrService,
               private _usuarioService: UsuarioService,
-              private aRouter:a
+
   ) {
     this.usuarioForm = this.fb.group({
       nombre: ['', Validators.required],
