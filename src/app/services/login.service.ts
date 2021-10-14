@@ -1,24 +1,35 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-
-import {LoginI} from '../models/login.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {UserLogin} from '../auth/paginas/login/login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  url =  'http://localhost:8081/api/' ;
+  url = 'http://localhost:8081/api/';
 
+  constructor(private http: HttpClient) {
+  }
 
-  constructor(private  http: HttpClient) { }
+  createHeaders(form: UserLogin) {
+    let headers = {
+      'Content-Type': 'application/json',
+      'Xmail': form.Xmail.toString(),
+      'Xpassword': window.btoa(unescape(encodeURIComponent(form.Xpassword.toString()))), // encriptado en Base64
+      'Access-Control-Allow-Origin': '*'
+    }
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    }
+    return requestOptions
 
-  loginByEmail(form: LoginI):Observable<any>{
-    let direccion = this.url + "login";
+  }
 
-    return this.http.post<any>(direccion,form);
+  loginByEmail(form: UserLogin) {
+    let direccion = this.url + 'login';
+    return this.http.get(direccion, this.createHeaders(form));
 
   }
 
