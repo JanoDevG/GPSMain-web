@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserLogin} from '../auth/paginas/login/login';
+import {response} from '../auth/paginas/login/account';
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +30,8 @@ export class LoginService {
 
   loginByEmail(form: UserLogin) {
     let direccion = this.url + 'login';
-    return this.http.get(direccion, this.createHeaders(form));
+    return this.http.get<response>(direccion, this.createHeaders(form));
 
   }
-
 
 }
