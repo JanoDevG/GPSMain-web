@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserLogin} from '../auth/paginas/login/login';
-import {response} from '../auth/paginas/login/account';
+import {response} from '../models/account';
 
 @Injectable({
   providedIn: 'root'
