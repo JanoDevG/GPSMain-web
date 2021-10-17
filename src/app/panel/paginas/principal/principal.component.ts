@@ -1,7 +1,6 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
-import {CountBusinessService} from '../../../services/admin/countBusiness.service';
+import {GetDataAdminService} from '../../../services/admin/getDataAdmin.service';
 import {error} from 'protractor';
-import {CountUsersService} from '../../../services/admin/countUsers.service';
 
 @Component({
   selector: 'gpsmain-principal',
@@ -12,8 +11,7 @@ export class PrincipalComponent implements OnInit {
   public empresas: Number = 0;
   public usuarios: Number = 0;
 
-  constructor(private countBusinessService: CountBusinessService,
-              private countUsersService: CountUsersService
+  constructor(private countBusinessService: GetDataAdminService
   ) {
   }
 
@@ -22,7 +20,7 @@ export class PrincipalComponent implements OnInit {
     this.countBusinessService.getCountBusiness().subscribe((value: Number) => {
       this.empresas = value;
     });
-    this.countUsersService.getCountUsers().subscribe((value: Number) => {
+    this.countBusinessService.getCountUsers().subscribe((value: Number) => {
       this.usuarios = value;
     });
   }

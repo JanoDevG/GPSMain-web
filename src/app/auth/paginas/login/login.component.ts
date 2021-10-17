@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../../services/login.service';
-import {LoginI} from '../../../models/login.interface';
 import {UserLogin} from './login';
-import {response} from './account';
+import {response} from '../../../models/account';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
