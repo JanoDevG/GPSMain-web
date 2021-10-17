@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.apilogin.loginByEmail(this.userL).subscribe((account: response) => {
       this.account = account;
       console.log("body: " + JSON.stringify(account))
-      console.log("nombre empresa:" + account.body.businessName)
+      console.log("nombre empresa:" + this.account.body.businessName)
     }, error => console.log('error en llamada a Login: ' + error));
   }
 
