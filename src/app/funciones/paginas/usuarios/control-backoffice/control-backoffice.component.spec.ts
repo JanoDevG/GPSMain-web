@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlDespachoComponent } from './control-despacho.component';
+import { ControlBackofficeComponent } from './control-backoffice.component';
 
-describe('ControlDespachoComponent', () => {
-  let component: ControlDespachoComponent;
-  let fixture: ComponentFixture<ControlDespachoComponent>;
+describe('ControlBackofficeComponent', () => {
+  let component: ControlBackofficeComponent;
+  let fixture: ComponentFixture<ControlBackofficeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ControlDespachoComponent ]
+      declarations: [ ControlBackofficeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ControlDespachoComponent);
+    fixture = TestBed.createComponent(ControlBackofficeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
