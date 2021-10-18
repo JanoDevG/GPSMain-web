@@ -1,0 +1,58 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+<div class="card">
+  <div class="card-body text-center">
+
+    <span class="titulo">Listado de usuarios</span>
+
+    <button class="btn btn-success float-end" routerLink="/crear-usuario">Nuevo usuario</button>
+
+
+    <table *ngIf="listarUsuarios.length>0" class="table table-striped mt-5 ">
+      <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">edad</th>
+        <th scope="col">empresa</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let usuario of listarUsuarios">
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.apellido}}</td>
+        <td>{{usuario.edad}}</td>
+        <td>{{usuario.empresa}}</td>
+        <td>
+
+          <button  class="btn btn-primary"  [routerLink]="['/editar-usuario', usuario._id]">Editar </button>
+          <button  class="btn btn-danger float-end" (click)="eliminarUsuario(usuario._id)" >Eliminar</button>
+
+
+        </td>
+
+
+      </tbody>
+    </table>
+
+    <h5  *ngIf="listarUsuarios.length == 0"> No Hay usuarios</h5>
+
+  </div>
+
+
+</div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+</div>
