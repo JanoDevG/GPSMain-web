@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
               private route:ActivatedRoute,private router:Router) {
   }
 
+  errorCredenciales: boolean = false;
+  errormsj:string="credenciales incorrectas";
+
   ngOnInit(): void {
   }
   userL: UserLogin = new UserLogin('', '');
@@ -39,13 +42,23 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/panel/gerente']);
             break;
         }
-      }else{
-        // Enviar mensaje de error al intentar logear
       }
       account = response;
       console.log("body: " + JSON.stringify(response))
+
       console.log("nombre empresa:" + account.body.businessName)
-    }, error => console.log('error en llamada a Login: ' + error));
+
+
+     localStorage.setItem('clave',String(account.body.names));
+     localStorage.setItem('apellidos',String(account.body.surnames));
+
+    }, error => {
+
+      console.log('error en llamada a Login: ' + error)
+
+   this.errorCredenciales= true;
+
+    });
   }
 
 

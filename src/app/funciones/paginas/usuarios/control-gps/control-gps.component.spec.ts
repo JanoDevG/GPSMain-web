@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlConductoresComponent } from './control-conductores.component';
+import { ControlGpsComponent } from './control-gps.component';
 
-describe('ControlConductoresComponent', () => {
-  let component: ControlConductoresComponent;
-  let fixture: ComponentFixture<ControlConductoresComponent>;
+describe('ControlGpsComponent', () => {
+  let component: ControlGpsComponent;
+  let fixture: ComponentFixture<ControlGpsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ControlConductoresComponent ]
+      declarations: [ ControlGpsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ControlConductoresComponent);
+    fixture = TestBed.createComponent(ControlGpsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
