@@ -16,7 +16,6 @@ export class UsuarioService {
 
   getUsuarios(): Observable<any> {
     return this.http.get(this.url);
-
   }
 
   eliminarUsuario(id: string): Observable<any> {
@@ -24,7 +23,6 @@ export class UsuarioService {
   }
 
   guardarUsuario(usuario: Usuario): Observable<any>{
-
     return this.http.post(this.url, usuario);
 
   }

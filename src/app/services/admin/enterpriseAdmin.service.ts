@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {response} from '../../models/account';
+import {account, response} from '../../models/account';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,11 @@ export class EnterpriseAdminService {
   constructor(private http: HttpClient) {
   }
 
-  headersCreateEnterprise(body: response, clietnSecret: String) {
+  headersCreateEnterprise(body: account, clietnSecret: String) {
     let headers = {
       'Content-Type': 'application/json',
       'Xoption': 'CREATE',
-      'Xmail':  String(body.body.mail),
+      'Xmail': String(body.mail),
 
     };
     let requestOptions = {
@@ -26,11 +26,11 @@ export class EnterpriseAdminService {
     return requestOptions;
   }
 
-  headersDeleteEnterprise(body: response, enterpriseName: String) {
+  headersDeleteEnterprise(body: account, enterpriseName: String) {
     let headers = {
       'Content-Type': 'application/json',
       'Xoption': 'DELETE',
-      'Xmail':  String(body.body.mail),
+      'Xmail': String(body.mail),
       'XenterpriseName': String(enterpriseName),
     };
     let requestOptions = {
@@ -39,14 +39,14 @@ export class EnterpriseAdminService {
     return requestOptions;
   }
 
-  createEnterprise(form: response, enterpriseName: String) {
+  createEnterprise(account: account, enterpriseName: String) {
     let direccion = this.url + 'admin/enterprise';
-    return this.http.post<Response>(direccion, form, this.headersCreateEnterprise(form, enterpriseName));
+    return this.http.post<Response>(direccion, account, this.headersCreateEnterprise(account, enterpriseName));
   }
 
-  deleteEnterprise(form: response, enterpriseName: String) {
+  deleteEnterprise(account: account, enterpriseName: String) {
     let direccion = this.url + 'admin/enterprise';
-    return this.http.delete<Response>(direccion, this.headersDeleteEnterprise(form, enterpriseName));
+    return this.http.delete<Response>(direccion, this.headersDeleteEnterprise(account, enterpriseName));
   }
 
 }
