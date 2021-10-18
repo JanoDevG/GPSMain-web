@@ -44,10 +44,12 @@ export class LoginComponent implements OnInit {
       }
       account = response;
       console.log("body: " + JSON.stringify(response))
+
       console.log("nombre empresa:" + account.body.businessName)
 
 
-     // localStorage.setItem('clave',account.body.)
+     localStorage.setItem('clave',String(account.body.names));
+     localStorage.setItem('apellidos',String(account.body.surnames));
 
     }, error => console.log('error en llamada a Login: ' + error));
   }

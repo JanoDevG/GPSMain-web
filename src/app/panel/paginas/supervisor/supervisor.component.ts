@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./supervisor.component.css']
 })
 export class SupervisorComponent implements OnInit {
+ name: any;
+ apellidos: any;
+  constructor() {
 
-  constructor() { }
+    this.name = localStorage.getItem('clave');
+    this.apellidos = localStorage.getItem('apellidos');
+
+
+  }
 
   ngOnInit(): void {
   }
