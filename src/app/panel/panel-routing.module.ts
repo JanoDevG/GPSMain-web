@@ -8,7 +8,6 @@ import {EliminarEmpresaComponent} from './paginas/principal/eliminar-empresa/eli
 import {AuthGuard} from '../guards/auth.guard';
 const routes: Routes = [
   {
-
     path: '',
     canActivate:[AuthGuard],
     children: [
