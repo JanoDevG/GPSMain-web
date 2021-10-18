@@ -5,7 +5,7 @@ export class response {
   ) {}
 }
 
-class account {
+export class account {
   constructor(
     public businessName: String,
     public businessId: String,
@@ -20,7 +20,7 @@ class account {
 
 }
 
-class Activity {
+export class Activity {
   constructor(
     public timestamp: String,
     public activityTitle: String,
@@ -29,7 +29,7 @@ class Activity {
   }
 }
 
-class GPS {
+export class GPS {
   constructor(
     public id: String,
     public clientId: String,
