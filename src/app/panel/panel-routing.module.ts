@@ -5,11 +5,12 @@ import {DespachoComponent} from './paginas/despacho/despacho.component';
 import {SupervisorComponent} from './paginas/supervisor/supervisor.component';
 import {AgregarEmpresaComponent} from './paginas/principal/agregar-empresa/agregar-empresa.component';
 import {EliminarEmpresaComponent} from './paginas/principal/eliminar-empresa/eliminar-empresa.component';
-
+import {AuthGuard} from '../guards/auth.guard';
 const routes: Routes = [
   {
 
     path: '',
+    canActivate:[AuthGuard],
     children: [
       {path: 'principal', component: PrincipalComponent },
       {path: 'despacho', component: DespachoComponent },
