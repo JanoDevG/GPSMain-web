@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {PrincipalComponent} from './paginas/principal/principal.component';
 import {DespachoComponent} from './paginas/despacho/despacho.component';
 import {SupervisorComponent} from './paginas/supervisor/supervisor.component';
-
 import {EliminarEmpresaComponent} from './paginas/principal/eliminar-empresa/eliminar-empresa.component';
 import {GerenteComponent} from './paginas/gerente/gerente.component';
 import {AuthGuard} from '../guards/auth.guard';
