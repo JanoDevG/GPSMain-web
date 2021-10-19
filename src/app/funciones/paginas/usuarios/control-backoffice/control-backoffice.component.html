@@ -14,6 +14,7 @@
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Email</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -21,15 +22,11 @@
               <td>{{account.names}}</td>
               <td>{{account.surnames}}</td>
               <td>{{account.mail}}</td>
+              <td>  <button class="btn btn-danger m-sm-2" type="submit" (click)="eliminarCuenta(account)" > Eliminar </button> </td>
 
             </tbody>
           </table>
-          <div class="container text-center">
-            <form (ngSubmit)="eliminarCuenta()" class="form-inline position-relative d-inline-block my-2">
-              <input [(ngModel)]="accountMail" class="form-control m-sm-2" type="search" placeholder="Ingrese Mail para eliminar" aria-label="Eliminar Cuenta" name="accountMail">
-              <button class="btn btn-danger m-sm-2" type="submit" > Eliminar cuenta </button>
-            </form>
-          </div>
+
         </div>
         <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
       </div>
