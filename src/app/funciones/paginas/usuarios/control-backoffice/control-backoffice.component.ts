@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {account} from '../../../../models/account';
+import {AccountService} from '../../../../services/supervisor/account.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'gpsmain-control-backoffice',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlBackofficeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiAccount: AccountService,
+              private route: ActivatedRoute, private router: Router) { }
+
+  accounts : Array<account> = new Array<account>();
 
   ngOnInit(): void {
+    this.apiAccount.getAccounts()
   }
 
 }

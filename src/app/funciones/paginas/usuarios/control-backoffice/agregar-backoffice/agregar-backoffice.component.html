@@ -1,54 +1,29 @@
-
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-6 offset-lg-3">
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Agregar Nuevo Backoffice</span>
-
-
-          <form class="mt-3" >
-
+          <form (ngSubmit)="onCreate()" class="mt-3" >
             <div class="mb-3">
-              <input type="text" formControlName=""
-                     class="form-control" placeholder="Nombre">
-
+              <input [(ngModel)]="newAccount.names" type="text" class="form-control" placeholder="Nombres" name="names">
             </div>
             <div class="mb-3">
-
-              <input type="text" formControlName=""
-                     class="form-control" placeholder="apellidos">
-
+              <input [(ngModel)]="newAccount.surnames" type="text" class="form-control" placeholder="apellidos" name="surnames">
             </div>
             <div class="mb-3">
-
-              <input type="text" formControlName=""
-                     class="form-control" placeholder="Password">
-
+              <input [(ngModel)]="newAccount.password" type="password" class="form-control" placeholder="Password" name="password">
             </div>
-
-
             <div class="mb-3">
-
-              <input type="text" formControlName=""
-                     class="form-control" placeholder="Email">
-
+              <input [(ngModel)]="newAccount.mail" type="email" class="form-control" placeholder="Email" name="mail">
             </div>
-
-
             <div class="mb-3">
-              <button routerLink="/funciones/backoffice-control" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
-              <button type="submit" class="btn btn btn-success btn-lg float-end">Aceptar</button>
-
+              <button routerLink="/funciones/backoffice-control" class="btn btn btn-secondary btn-lg float-start">
+                Volver
+              </button>
+              <button type="submit" class="btn btn btn-success btn-lg float-end">Crear</button>
             </div>
-
-
-
-
-
           </form>
-
-
 
         </div>
       </div>

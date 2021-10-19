@@ -15,6 +15,7 @@ export class account {
     public names: String,
     public surnames: String,
     public mail: String,
+    public password: String
   ) {
   }
 
