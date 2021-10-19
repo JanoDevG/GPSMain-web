@@ -44,13 +44,13 @@ export class AccountService {
     return requestOptions;
   }
 
-  private headersGetAllAccounts(profile: String){
+  private headersGetAllAccounts(profile: String) {
     let headers = {
       'Content-Type': 'application/json',
       'Xmail': String(localStorage.getItem('supervisorMail')),
       'XclientSecret': String(localStorage.getItem('clientSecret')),
       'Xprofile': String(profile)
-    }
+    };
     let requestOptions = {
       headers: new HttpHeaders(headers),
     };
@@ -74,8 +74,8 @@ export class AccountService {
 
   }
 
-  deleteAccount(body: account, option: String) {
-    return this.http.delete<responseCRUDAccount>(this.url + 'account/delete-account', this.headersAccount(body, option, ''));
+  deleteAccount(body: account, option: String, mailAccount: String) {
+    return this.http.delete<responseCRUDAccount>(this.url + 'account/delete-account?mail=' + mailAccount, this.headersAccount(body, option, ''));
 
   }
 

@@ -4,15 +4,17 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Agregar Nuevo Backoffice</span>
-          <form (ngSubmit)="onCreate()" class="mt-3" >
+          <form (ngSubmit)="onCreate()" class="mt-3">
             <div class="mb-3">
               <input [(ngModel)]="newAccount.names" type="text" class="form-control" placeholder="Nombres" name="names">
             </div>
             <div class="mb-3">
-              <input [(ngModel)]="newAccount.surnames" type="text" class="form-control" placeholder="apellidos" name="surnames">
+              <input [(ngModel)]="newAccount.surnames" type="text" class="form-control" placeholder="apellidos"
+                     name="surnames">
             </div>
             <div class="mb-3">
-              <input [(ngModel)]="newAccount.password" type="password" class="form-control" placeholder="Password" name="password">
+              <input [(ngModel)]="newAccount.password" type="password" class="form-control" placeholder="Password"
+                     name="password">
             </div>
             <div class="mb-3">
               <input [(ngModel)]="newAccount.mail" type="email" class="form-control" placeholder="Email" name="mail">
@@ -24,7 +26,6 @@
               <button type="submit" class="btn btn btn-success btn-lg float-end">Crear</button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
