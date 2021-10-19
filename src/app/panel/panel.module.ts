@@ -7,6 +7,7 @@ import { DespachoComponent } from './paginas/despacho/despacho.component';
 import { SupervisorComponent } from './paginas/supervisor/supervisor.component';
 import { AgregarEmpresaComponent } from './paginas/principal/agregar-empresa/agregar-empresa.component';
 import { EliminarEmpresaComponent } from './paginas/principal/eliminar-empresa/eliminar-empresa.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EliminarEmpresaComponent } from './paginas/principal/eliminar-empresa/e
   ],
   imports: [
     CommonModule,
-    PanelRoutingModule
+    PanelRoutingModule,
+    FormsModule
   ]
 })
 export class PanelModule { }

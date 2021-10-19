@@ -14,21 +14,16 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="container collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diego Velázquez
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Mi perfil</a>
-                <a class="dropdown-item" href="#">Suscripciones</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Cerrar sesión</a>
-              </div>
-            </li>
+
+            <a class="dropdown-item">{{name}} {{apellidos}}</a>
+
+
+
           </ul>
+
+          <button class="btn btn-danger" type="submit"  [routerLink]="['/auth/login']" (click)="cerrarsesion()">Cerrar Sesión</button>
         </div>
       </div>
     </nav>
@@ -40,12 +35,27 @@
       <section class="bg-light py-3">
         <div class="container">
           <div class="row">
-            <div class="col-lg-9 col-md-8">
-              <h1 class="font-weight-bold mb-0">Bienvenido Administrador</h1>
+            <div class="col-lg-9 col-md-8 text-center">
+              <h1 class=" mb-1">Bienvenido {{name}}{{apellidos}}</h1>
             </div>
-            <div class="col-lg-3 col-md-3 d-flex">
-              <button [routerLink]="['/panel/agregarEmpresa']" class="btn btn-danger  float-start">Registrar nueva empresa</button>
-              <button [routerLink]="['/panel/eliminarEmpresa']" class="btn btn-danger end-50">Eliminar empresa</button>
+
+            <div class="container text-center">
+
+
+              <form (ngSubmit)="guardarClave()" class="form-inline position-relative d-inline-block my-2">
+
+                <input [(ngModel)]="clientsecret" class="form-control m-sm-2" type="search" placeholder="Ingrese Codigo" aria-label="Buscar" name="clientSecret">
+
+                <button class="btn btn-success m-sm-2" type="submit" > Agregar Codigo </button>
+
+              </form>
+
+            </div>
+
+            <div class="container text-center">
+              <button [routerLink]="['/panel/agregarEmpresa']" class="btn btn-danger m-sm-2 ">Registrar nueva empresa</button>
+              <button [routerLink]="['/panel/eliminarEmpresa']" class="btn btn-danger m-sm-2">Eliminar empresa</button>
+
             </div>
           </div>
         </div>

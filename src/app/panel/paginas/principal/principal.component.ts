@@ -1,6 +1,7 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {GetDataAdminService} from '../../../services/admin/getDataAdmin.service';
 import {error} from 'protractor';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'gpsmain-principal',
@@ -11,9 +12,38 @@ export class PrincipalComponent implements OnInit {
   public empresas: Number = 0;
   public usuarios: Number = 0;
 
-  constructor(private countBusinessService: GetDataAdminService
+  name: any;
+  apellidos: any;
+  clientsecret:string = "";
+
+  constructor(private countBusinessService: GetDataAdminService,private fb: FormBuilder
   ) {
+
+    this.name = localStorage.getItem('clave');
+    this.apellidos = localStorage.getItem('apellidos');
+
+
   }
+
+
+  cerrarsesion(){
+
+    localStorage.removeItem('clave');
+    localStorage.removeItem('apellidos');
+    localStorage.removeItem('clientsecret');
+    localStorage.removeItem('supervisorMail');
+
+
+  }
+  guardarClave(){
+
+
+
+    localStorage.setItem('clientsecret',this.clientsecret);
+
+
+  }
+
 
 
   ngOnInit(): void {

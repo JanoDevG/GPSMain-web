@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
 
      localStorage.setItem('clave',String(account.body.names));
      localStorage.setItem('apellidos',String(account.body.surnames));
+     localStorage.setItem('supervisorMail',String(account.body.mail));
 
     }, error => {
 

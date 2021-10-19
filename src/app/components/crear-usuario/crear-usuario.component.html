@@ -31,9 +31,9 @@
               <input type="number" formControlName="edad"
                      class="form-control" placeholder="Edad">
               <div class="text-danger"
-                   *ngIf="usuarioForm.get('edad')?.hasError('required') &&  usuarioForm.get('edad')?.touched">
-                <span>*la Edad es Obligatoria</span>
-              </div>
+                          *ngIf="usuarioForm.get('edad')?.hasError('required') &&  usuarioForm.get('edad')?.touched">
+              <span>*la Edad es Obligatoria</span>
+            </div>
 
             </div>
             <div class="mb-3">
