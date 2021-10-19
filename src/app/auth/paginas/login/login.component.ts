@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../../services/login.service';
 import {UserLogin} from './login';
 import {response} from '../../../models/account';
 import { ActivatedRoute, Router } from '@angular/router';
+import {Usuario} from "../../../models/usuario";
 
 @Component({
   selector: 'gpsmain-login',
@@ -12,16 +13,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 })
 export class LoginComponent implements OnInit {
+  usuForm : FormGroup;
 
-  constructor(private apilogin: LoginService,
+
+  constructor(private fb: FormBuilder,
+    private apilogin: LoginService,
               private route:ActivatedRoute,private router:Router) {
-  }
+
+    this.usuForm= this.fb.group({
+        email:['',Validators.required],
+      password:['',Validators.required]
+
+
+    }
+  )}
+
+
+
 
   errorCredenciales: boolean = false;
-  errormsj:string="credenciales incorrectas";
+  errormsj:string="******credenciales incorrectas******";
 
   ngOnInit(): void {
   }
+
   userL: UserLogin = new UserLogin('', '');
 
   onLogin() {
