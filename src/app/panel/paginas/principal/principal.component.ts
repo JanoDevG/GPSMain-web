@@ -36,12 +36,7 @@ export class PrincipalComponent implements OnInit {
 
   }
   guardarClave(){
-
-
-
-    localStorage.setItem('clientsecret',this.clientsecret);
-
-
+    localStorage.setItem('clientSecret',this.clientsecret);
   }
 
 

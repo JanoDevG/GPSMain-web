@@ -3,34 +3,30 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {account} from '../../models/account';
 import {isNull} from 'util';
 import {isEmpty} from 'rxjs/operators';
+import {responseCRUDAccount} from '../../funciones/paginas/usuarios/control-backoffice/agregar-backoffice/responseCRUDAccount';
+import {ListAccount} from '../../funciones/paginas/usuarios/control-backoffice/ListAccount';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GpsService {
+export class AccountService {
 
-  url = 'http://localhost:4500/api/';
+  url = 'http://localhost:8081/api/';
 
 
   constructor(private http: HttpClient) {
   }
 
-  headersAccount(body: account, clietnSecret: String, option: String, mailAccount: String) {
+  private headersAccount(body: account, option: String, mailAccount: String) {
     let headers;
     if (option == '') { // se asume get y get all
-      if (mailAccount == '') {
-        headers = {
-          'Content-Type': 'application/json',
-          'Xmail': String(body.mail),
-          'XclientSecret': String(clietnSecret),
-          'XmailAccount': String(mailAccount)
-
-        };
+      if (mailAccount == '') { // se asume get all
       } else {
         headers = {
           'Content-Type': 'application/json',
-          'Xmail': String(body.mail),
-          'XclientSecret': String(clietnSecret)
+          'Xmail': String(localStorage.getItem('supervisorMail')),
+          'XmailAccount': String(mailAccount),
+          'XclientSecret': String(localStorage.getItem('clientSecret'))
 
         };
       }
@@ -38,9 +34,8 @@ export class GpsService {
       headers = {
         'Xoption': String(option),
         'Content-Type': 'application/json',
-        'Xmail': String(body.mail),
-        'XclientSecret': String(clietnSecret)
-
+        'Xmail': String(localStorage.getItem('supervisorMail')),
+        'XclientSecret': String(localStorage.getItem('clientSecret'))
       };
     }
     let requestOptions = {
@@ -49,25 +44,38 @@ export class GpsService {
     return requestOptions;
   }
 
-  getAccounts(body: account, clietnSecret: String) {
-    return this.http.get(this.url + 'account/get-account', this.headersAccount(body, clietnSecret, '', ''));
+  private headersGetAllAccounts(profile: String){
+    let headers = {
+      'Content-Type': 'application/json',
+      'Xmail': String(localStorage.getItem('supervisorMail')),
+      'XclientSecret': String(localStorage.getItem('clientSecret')),
+      'Xprofile': String(profile)
+    }
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return requestOptions;
   }
 
-  getAccount(body: account, clietnSecret: String, mailAccount: String) {
-    return this.http.get(this.url + 'account/get-all-accounts', this.headersAccount(body, clietnSecret, '', mailAccount));
+  getAccounts(profile: String) {
+    return this.http.get<ListAccount>(this.url + 'account/get-all-accounts', this.headersGetAllAccounts(profile));
   }
 
-  updateAccount(body: account, clietnSecret: String, option: String) {
-    return this.http.get(this.url + 'account/update-account', this.headersAccount(body, clietnSecret, option, ''));
+  getAccount(body: account, mailAccount: String) {
+    return this.http.get(this.url + 'account/get-account', this.headersAccount(body, '', mailAccount));
   }
 
-  createAccount(body: account, clietnSecret: String, option: String) {
-    return this.http.get(this.url + 'account/create-account', this.headersAccount(body, clietnSecret, option, ''));
+  updateAccount(body: account, option: String) {
+    return this.http.put<responseCRUDAccount>(this.url + 'account/update-account', body, this.headersAccount(body, option, ''));
+  }
+
+  createAccount(body: account, option: String) {
+    return this.http.post<responseCRUDAccount>(this.url + 'account/create-account', body, this.headersAccount(body, option, ''));
 
   }
 
-  deleteAccount(body: account, clietnSecret: String, option: String) {
-    return this.http.get(this.url + 'account/delete-account', this.headersAccount(body, clietnSecret, option, ''));
+  deleteAccount(body: account, option: String) {
+    return this.http.delete<responseCRUDAccount>(this.url + 'account/delete-account', this.headersAccount(body, option, ''));
 
   }
 

@@ -12,6 +12,7 @@ import { ControlGerentesComponent } from './paginas/usuarios/control-gerentes/co
 import { AgregarGerentesComponent } from './paginas/usuarios/control-gerentes/agregar-gerentes/agregar-gerentes.component';
 import { ControlGpsComponent } from './paginas/usuarios/control-gps/control-gps.component';
 import { AgregarGpsComponent } from './paginas/usuarios/control-gps/agregar-gps/agregar-gps.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -27,9 +28,10 @@ import { AgregarGpsComponent } from './paginas/usuarios/control-gps/agregar-gps/
     ControlGpsComponent,
     AgregarGpsComponent
   ],
-  imports: [
-    CommonModule,
-    FuncionesRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        FuncionesRoutingModule,
+        FormsModule
+    ]
 })
 export class FuncionesModule { }

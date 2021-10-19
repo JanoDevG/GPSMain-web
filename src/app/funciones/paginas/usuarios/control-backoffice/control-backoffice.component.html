@@ -1,63 +1,38 @@
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 <div class="container mt-5">
-
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <div class="card-body text-center">
-
           <span class="titulo">Listado de Back-Office</span>
-
-          <button class="btn btn-success float-end" routerLink="/funciones/backoffice-agregar">Nuevo Usuario backoffice</button>
-
-
+          <button class="btn btn-success float-end" routerLink="/funciones/backoffice-agregar">Nuevo Usuario
+            backoffice
+          </button>
           <table class="table table-striped mt-5 ">
             <thead>
             <tr>
-              <th scope="col">Nombre</th>
+              <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Email</th>
-              <th scope="col">Password</th>
-
-
-              <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr >
-              <td>jason</td>
-              <td>parraguez</td>
-              <td>Jason@inacap.cl</td>
-              <td>admin1234</td>
-
-              <td>
-
-
-                <button  class="btn btn-danger float-end" >Eliminar</button>
-
-
-              </td>
-
+            <tr *ngFor="let account of accounts">
+              <td>{{account.names}}</td>
+              <td>{{account.surnames}}</td>
+              <td>{{account.mail}}</td>
 
             </tbody>
           </table>
-
-
-
+          <div class="container text-center">
+            <form (ngSubmit)="eliminarCuenta()" class="form-inline position-relative d-inline-block my-2">
+              <input [(ngModel)]="accountMail" class="form-control m-sm-2" type="search" placeholder="Ingrese Mail para eliminar" aria-label="Eliminar Cuenta" name="accountMail">
+              <button class="btn btn-danger m-sm-2" type="submit" > Eliminar cuenta </button>
+            </form>
+          </div>
         </div>
-
         <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
-
       </div>
-
     </div>
-
-
-
   </div>
-
-
-
-
 </div>
