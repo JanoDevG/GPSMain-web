@@ -5,9 +5,12 @@ import { PanelRoutingModule } from './panel-routing.module';
 import { PrincipalComponent } from './paginas/principal/principal.component';
 import { DespachoComponent } from './paginas/despacho/despacho.component';
 import { SupervisorComponent } from './paginas/supervisor/supervisor.component';
-import { AgregarEmpresaComponent } from './paginas/principal/agregar-empresa/agregar-empresa.component';
 import { EliminarEmpresaComponent } from './paginas/principal/eliminar-empresa/eliminar-empresa.component';
-import {FormsModule} from "@angular/forms";
+
+import {FormsModule} from '@angular/forms';
+import { GerenteComponent } from './paginas/gerente/gerente.component';
+import { AgregarEmpresasComponent } from './paginas/principal/agregar-empresas/agregar-empresas.component';
+
 
 
 @NgModule({
@@ -15,8 +18,9 @@ import {FormsModule} from "@angular/forms";
     PrincipalComponent,
     DespachoComponent,
     SupervisorComponent,
-    AgregarEmpresaComponent,
-    EliminarEmpresaComponent
+    EliminarEmpresaComponent,
+    GerenteComponent,
+    AgregarEmpresasComponent,
   ],
   imports: [
     CommonModule,
