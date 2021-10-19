@@ -56,7 +56,7 @@ export class FleetService {
     };
     return requestOptions;
   }
-
+/*
   obtenerFlotas() {
     return this.http.get<GPSResponse>(this.url + 'gps/get-all-gps', this.headersGPSGet());
   }
@@ -68,5 +68,7 @@ export class FleetService {
   eliminarGPS(gpsId: String) {
     return this.http.delete(this.url + 'gps/delete-gps', this.headersGPSDelete(gpsId));
   }
+
+ */
 
 }

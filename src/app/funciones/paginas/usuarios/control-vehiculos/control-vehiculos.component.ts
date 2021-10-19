@@ -16,9 +16,11 @@ export class ControlVehiculosComponent implements OnInit {
               private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.apiGps.obtenerGPSs().subscribe((value: GPSResponse) => {
+    /*this.apiGps.obtenerGPSs().subscribe((value: GPSResponse) => {
       this.gPSs = value.body;
     });
+
+     */
   }
 
   fleets: Array<Fleet> = new Array<Fleet>();
