@@ -8,7 +8,7 @@ import { SupervisorComponent } from './paginas/supervisor/supervisor.component';
 import { EliminarEmpresaComponent } from './paginas/principal/eliminar-empresa/eliminar-empresa.component';
 import {FormsModule} from '@angular/forms';
 import { GerenteComponent } from './paginas/gerente/gerente.component';
-import { AgregarEmpresasComponent } from './paginas/principal/agregar-empresas/agregar-empresas.component';
+
 
 
 
@@ -19,7 +19,7 @@ import { AgregarEmpresasComponent } from './paginas/principal/agregar-empresas/a
     SupervisorComponent,
     EliminarEmpresaComponent,
     GerenteComponent,
-    AgregarEmpresasComponent,
+
   ],
   imports: [
     CommonModule,

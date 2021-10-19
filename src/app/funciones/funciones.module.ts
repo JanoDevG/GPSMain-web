@@ -11,8 +11,8 @@ import { AgregarBackofficeComponent } from './paginas/usuarios/control-backoffic
 import { ControlGerentesComponent } from './paginas/usuarios/control-gerentes/control-gerentes.component';
 import { AgregarGerentesComponent } from './paginas/usuarios/control-gerentes/agregar-gerentes/agregar-gerentes.component';
 import { ControlGpsComponent } from './paginas/usuarios/control-gps/control-gps.component';
-import { AgregarGpsComponent } from './paginas/usuarios/control-gps/agregar-gps/agregar-gps.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ControlGerentesComponent,
     AgregarGerentesComponent,
     ControlGpsComponent,
-    AgregarGpsComponent
+
   ],
     imports: [
         CommonModule,
