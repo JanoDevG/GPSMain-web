@@ -32,12 +32,7 @@ export class SupervisorComponent implements OnInit {
 
   }
   guardarClave(){
-
-
-
-    localStorage.setItem('clientsecret',this.clientsecret);
-
-
+    localStorage.setItem('clientSecret',this.clientsecret);
   }
 
 

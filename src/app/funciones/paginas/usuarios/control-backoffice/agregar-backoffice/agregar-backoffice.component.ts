@@ -21,18 +21,16 @@ export class AgregarBackofficeComponent implements OnInit {
   }
 
   newAccount: account = new account('', '', '', new Array<Activity>(), new Array<GPS>(), '', '', '', '');
-  response: responseCRUDAccount = new responseCRUDAccount('', '');
 
   onCreate() {
     this.newAccount.password = window.btoa(unescape(encodeURIComponent(this.newAccount.password.toString())));
     this.newAccount.profile = 'backoffice';
-    this.apiAccount.createAccount(this.newAccount, 'CREATE').subscribe(value => {
-      this.response = value;
+    this.apiAccount.createAccount(this.newAccount, 'CREATE').subscribe((value: responseCRUDAccount) => {
+      if (value.status == 'CREATED') {
+        this.router.navigate(['/panel/supervisor']);
+      } else {
+        // TODO enviar mensaje de mal creación de cuenta nueva
+      }
     });
-    if (this.response.status == 'OK') {
-      this.router.navigate(['/panel/supervisor']);
-    } else {
-      // TODO enviar mensaje de mal creación de cuenta nueva
-    }
   }
 }

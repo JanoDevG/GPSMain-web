@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {account} from '../../../../models/account';
+import {Component, OnInit} from '@angular/core';
+import {account, Activity, GPS} from '../../../../models/account';
 import {AccountService} from '../../../../services/supervisor/account.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ListAccount} from './ListAccount';
 
 @Component({
   selector: 'gpsmain-control-backoffice',
@@ -11,12 +12,21 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ControlBackofficeComponent implements OnInit {
 
   constructor(private apiAccount: AccountService,
-              private route: ActivatedRoute, private router: Router) { }
+              private route: ActivatedRoute, private router: Router) {
+  }
 
-  accounts : Array<account> = new Array<account>();
+  accounts: Array<account> = new Array<account>();
+
+  accountMail: String = '';
 
   ngOnInit(): void {
-    this.apiAccount.getAccounts()
+    this.apiAccount.getAccounts('backoffice').subscribe(value => {
+      this.accounts = value.body;
+    });
+  }
+
+  eliminarCuenta() {
+
   }
 
 }
