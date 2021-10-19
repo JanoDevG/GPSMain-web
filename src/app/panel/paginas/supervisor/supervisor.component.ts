@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SupervisorComponent implements OnInit {
  name: any;
  apellidos: any;
+  clientsecret:string = "";
+
+
+
   constructor() {
 
     this.name = localStorage.getItem('clave');
@@ -15,6 +19,27 @@ export class SupervisorComponent implements OnInit {
 
 
   }
+
+
+
+  cerrarsesion(){
+
+    localStorage.removeItem('clave');
+    localStorage.removeItem('apellidos');
+    localStorage.removeItem('clientsecret');
+    localStorage.removeItem('supervisorMail');
+
+
+  }
+  guardarClave(){
+
+
+
+    localStorage.setItem('clientsecret',this.clientsecret);
+
+
+  }
+
 
   ngOnInit(): void {
   }

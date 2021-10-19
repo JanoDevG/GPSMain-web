@@ -8,12 +8,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
         <a class="dropdown-item">{{name}} {{apellidos}}</a>
-        <a class="dropdown-item" href="/auth/login">Cerrar sesión</a>
+
+
+
       </ul>
+
+      <button class="btn btn-danger" type="submit"  [routerLink]="['/auth/login']" (click)="cerrarsesion()">Cerrar Sesión</button>
     </div>
   </div>
 </nav>
@@ -30,6 +34,17 @@
             <div class="col-lg-9 col-md-8">
               <h1 class="font-weight-bold mb-0">Bienvenido Supervisor {{name}}</h1>
             </div>
+
+            <div class="container text-center">
+              <form (ngSubmit)="guardarClave()" class="form-inline position-relative d-inline-block my-2">
+
+                <input [(ngModel)]="clientsecret" class="form-control m-sm-2" type="search" placeholder="Ingrese Codigo" aria-label="Buscar" name="clientSecret">
+
+                <button class="btn btn-success m-sm-2" type="submit" > Agregar Codigo </button>
+
+              </form>
+            </div>
+
 
           </div>
         </div>
