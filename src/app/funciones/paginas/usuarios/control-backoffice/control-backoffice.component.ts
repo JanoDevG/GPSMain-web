@@ -17,9 +17,6 @@ export class ControlBackofficeComponent implements OnInit {
 
   accounts: Array<account> = new Array<account>();
 
-  accountMail: String = '';
-
-
   ngOnInit(): void {
     this.apiAccount.getAccounts('backoffice').subscribe(value => {
       this.accounts = value.body;
@@ -27,16 +24,14 @@ export class ControlBackofficeComponent implements OnInit {
   }
 
   eliminarCuenta(account: account) {
-    this.apiAccount.deleteAccount(account, 'DELETE').subscribe(data => {
+    this.apiAccount.deleteAccount(account, 'DELETE', account.mail).subscribe(data => {
       console.log('eliminado');
-
+      if (data.status == 'OK'){
+        this.router.navigate(['/panel/supervisor'])
+      }
     }, error => {
-      console.log('no eliminado');
-
-    })
-
-
+      console.log('cuenta no se pudo eliminar: ' + error);
+    });
   }
-
 
 }

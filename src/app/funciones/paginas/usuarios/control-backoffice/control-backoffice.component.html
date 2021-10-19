@@ -14,7 +14,7 @@
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Email</th>
-              <th></th>
+              <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -22,11 +22,11 @@
               <td>{{account.names}}</td>
               <td>{{account.surnames}}</td>
               <td>{{account.mail}}</td>
-              <td>  <button class="btn btn-danger m-sm-2" type="submit" (click)="eliminarCuenta(account)" > Eliminar </button> </td>
-
+              <td>
+                <button class="btn btn-danger m-sm-2" type="submit" (click)="eliminarCuenta(account)"> Eliminar</button>
+              </td>
             </tbody>
           </table>
-
         </div>
         <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
       </div>

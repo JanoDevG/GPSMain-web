@@ -4,51 +4,30 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Agregar Nuevo Gerente</span>
-
-
-          <form class="mt-3" >
-
+          <form (ngSubmit)="onCreate()" class="mt-3">
             <div class="mb-3">
-              <input type="text" formControlName=""
-                     class="form-control" placeholder="Nombre">
-
+              <input [(ngModel)]="newAccount.names" name="names" type="text" formControlName=""
+                     class="form-control" placeholder="Nombres">
             </div>
             <div class="mb-3">
-
-              <input type="text" formControlName=""
+              <input [(ngModel)]="newAccount.surnames" name="surnames" type="text" formControlName=""
                      class="form-control" placeholder="apellidos">
-
             </div>
             <div class="mb-3">
-
-              <input type="text" formControlName=""
+              <input [(ngModel)]="newAccount.password" name="password" type="password" formControlName=""
                      class="form-control" placeholder="Password">
-
             </div>
-
-
             <div class="mb-3">
-
-              <input type="text" formControlName=""
+              <input [(ngModel)]="newAccount.mail" name="mail" type="email" formControlName=""
                      class="form-control" placeholder="Email">
-
             </div>
-
-
             <div class="mb-3">
-              <button routerLink="/funciones/gerentes-control" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
+              <button routerLink="/funciones/gerentes-control" class="btn btn btn-secondary btn-lg float-start">
+                Volver
+              </button>
               <button type="submit" class="btn btn btn-success btn-lg float-end">Aceptar</button>
-
             </div>
-
-
-
-
-
           </form>
-
-
-
         </div>
       </div>
     </div>
