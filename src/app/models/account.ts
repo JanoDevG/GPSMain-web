@@ -32,7 +32,7 @@ export class Activity {
 
 export class GPS {
   constructor(
-    public id: String,
+    public _id: String,
     public clientId: String,
     public clientSecretId: String,
     public isActive: boolean,
