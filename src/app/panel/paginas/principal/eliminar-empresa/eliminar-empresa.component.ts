@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'gpsmain-eliminar-empresa',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EliminarEmpresaComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
+  empresas: Array<String> = new Array<String>();
 
   ngOnInit(): void {
+    
   }
 
 }

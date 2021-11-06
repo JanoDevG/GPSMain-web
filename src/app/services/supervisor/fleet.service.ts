@@ -1,14 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, observable} from 'rxjs';
-import {Usuario} from '../../models/usuario';
-import {account} from '../../models/account';
 import {GPSResponse} from '../../funciones/paginas/usuarios/control-gps/GPSResponse';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GpsService {
+export class FleetService {
 
   url = 'http://localhost:8081/api/';
 
@@ -16,7 +13,7 @@ export class GpsService {
   constructor(private http: HttpClient) {
   }
 
-  private headersGPSGet() {
+  private headersFleetGet() {
     let headers = {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
@@ -29,7 +26,7 @@ export class GpsService {
     return requestOptions;
   }
 
-  private headersGPSDelete(gpsId: String) {
+  private headersFleetDelete(gpsId: String) {
     let headers = {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
@@ -45,7 +42,7 @@ export class GpsService {
     return requestOptions;
   }
 
-  private headersGPSCreate() {
+  private headersFleetCreate() {
     let headers = {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
@@ -59,8 +56,8 @@ export class GpsService {
     };
     return requestOptions;
   }
-
-  obtenerGPSs() {
+/*
+  obtenerFlotas() {
     return this.http.get<GPSResponse>(this.url + 'gps/get-all-gps', this.headersGPSGet());
   }
 
@@ -71,5 +68,7 @@ export class GpsService {
   eliminarGPS(gpsId: String) {
     return this.http.delete(this.url + 'gps/delete-gps', this.headersGPSDelete(gpsId));
   }
+
+ */
 
 }

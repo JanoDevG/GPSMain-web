@@ -22,7 +22,7 @@ export class AgregarGerentesComponent implements OnInit {
 
   onCreate() {
     this.newAccount.password = window.btoa(unescape(encodeURIComponent(this.newAccount.password.toString())));
-    this.newAccount.profile = 'backoffice';
+    this.newAccount.profile = 'manager';
     this.apiAccount.createAccount(this.newAccount, 'CREATE').subscribe((value: responseCRUDAccount) => {
       if (value.status == 'CREATED') {
         this.router.navigate(['/panel/supervisor']);
