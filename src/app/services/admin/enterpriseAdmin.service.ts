@@ -13,11 +13,14 @@ export class EnterpriseAdminService {
   constructor(private http: HttpClient) {
   }
 
-  headersCreateEnterprise(body: account, clietnSecret: String) {
+  headersCreateEnterprise(body: account, enterpriseName: String) {
     let headers = {
       'Content-Type': 'application/json',
       'Xoption': 'CREATE',
       'Xmail': String(body.mail),
+      'XenterpriseName': String(enterpriseName),
+      'XclietnSecret': String(localStorage.getItem('clientSecret'))
+
 
     };
     let requestOptions = {
@@ -30,7 +33,7 @@ export class EnterpriseAdminService {
     let headers = {
       'Content-Type': 'application/json',
       'Xoption': 'DELETE',
-      'Xmail': String(body.mail),
+      'Xmail': String(localStorage.getItem('supervisorMail')),
       'XenterpriseName': String(enterpriseName),
     };
     let requestOptions = {

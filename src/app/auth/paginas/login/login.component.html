@@ -40,15 +40,31 @@
         <!-- FORMULARIO FORM/INPUTS -->
 
 
-        <form (ngSubmit)="onLogin()">
+        <form [formGroup]="usuForm"  (ngSubmit)="onLogin()">
           <div class="inputs">
             <i class="fas fa-envelope"></i>
-            <input type="email" [(ngModel)]="userL.Xmail" name="Xusuario" placeholder="Ingresa tu correo">
+            <input type="email" [(ngModel)]="userL.Xmail" formControlName="email" name="Xusuario" placeholder="Ingresa tu correo">
+            <div class="text-danger"
+                 *ngIf="usuForm.get('email')?.hasError('required') &&  usuForm.get('email')?.touched">
+              <span>**campo requerido**</span>
+            </div>
           </div>
+
+
+
+
           <div class="inputs">
             <i class="fas fa-lock"></i>
-            <input type="password" [(ngModel)]="userL.Xpassword" name="Xpassword" placeholder="Contraseña">
+            <input type="password" [(ngModel)]="userL.Xpassword" formControlName="password" name="Xpassword" placeholder="Contraseña">
+
+            <div class="text-danger"
+                 *ngIf="usuForm.get('password')?.hasError('required') &&  usuForm.get('password')?.touched">
+              <span>**campo requerido**</span>
+            </div>
+
           </div>
+
+
 
           <div class="alert alert-danger tex" *ngIf="errorCredenciales">
             <p>{{errormsj}}</p>

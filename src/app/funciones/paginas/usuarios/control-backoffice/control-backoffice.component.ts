@@ -26,8 +26,8 @@ export class ControlBackofficeComponent implements OnInit {
   eliminarCuenta(account: account) {
     this.apiAccount.deleteAccount(account, 'DELETE', account.mail).subscribe(data => {
       console.log('eliminado');
-      if (data.status == 'OK'){
-        this.router.navigate(['/panel/supervisor'])
+      if (data.status == 'OK') {
+        this.router.navigate(['/panel/supervisor']);
       }
     }, error => {
       console.log('cuenta no se pudo eliminar: ' + error);
