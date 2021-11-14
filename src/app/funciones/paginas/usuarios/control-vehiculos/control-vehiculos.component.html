@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Listado de flotas</span>
-          <button class="btn btn-success float-end" routerLink="/funciones/backoffice-agregar">Registrar nueva flota
+          <button class="btn btn-success float-end" routerLink="/funciones/vehiculos-agregar">Registrar nueva flota
           </button>
           <table class="table table-striped mt-5 ">
             <thead>
@@ -23,7 +23,7 @@
             <tr *ngFor="let fleet of fleets">
               <td>{{fleet.carName}}</td>
               <td *ngIf="fleet.gpsAssigned == null">
-                <button class="btn btn-primary m-sm-2" type="submit">Asignar GPS Nuevo!</button>
+                <button (click)="asignarGPS(fleet)" class="btn btn-primary m-sm-2" type="submit">Asignar GPS Nuevo!</button>
               </td>
               <td *ngIf="fleet.gpsAssigned != null">
                 {{fleet.gpsAssigned}}

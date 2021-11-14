@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {HttpClientModule} from '@angular/common/http';
 import {Router, RouterModule} from '@angular/router';
+import { AgregarFlotaComponent } from './funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {Router, RouterModule} from '@angular/router';
     AppComponent,
     CrearUsuarioComponent,
     ListarUsuarioComponent,
+    AgregarFlotaComponent,
   ],
   imports: [
     BrowserModule,

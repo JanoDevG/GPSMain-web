@@ -5,6 +5,8 @@ import {Fleet, ListFleetsResponse} from '../../../../models/Fleet';
 import {GPSResponse} from '../control-gps/GPSResponse';
 import {GPS} from '../../../../models/account';
 import {FleetService} from '../../../../services/supervisor/fleet.service';
+import {ResponseString} from '../../../../models/ResponseString';
+import {error} from 'protractor';
 
 @Component({
   selector: 'gpsmain-control-vehiculos',
@@ -48,4 +50,14 @@ export class ControlVehiculosComponent implements OnInit {
       console.log('No se pudo desvincular GSP: ' + error);
     });
   }
+
+  asignarGPS(fleet: Fleet) {
+    this.apiFleet.asignarGPS(fleet).subscribe((res: ResponseString) => {
+      console.log(res.body);
+      this.router.navigate(['/panel/supervisor']);
+    }, error => {
+      console.log('No se pudo Asignar GSP: ' + error);
+    });
+  }
+
 }

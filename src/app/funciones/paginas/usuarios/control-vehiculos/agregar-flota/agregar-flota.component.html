@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Agregar Nueva Flota</span>
+          <form (ngSubmit)="agregarFlota()" class="mt-3">
+            <div class="mb-3">
+              <input [(ngModel)]="flota.carName" name="carName" type="text" class="form-control"
+                     placeholder="Nombre Flota">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]="flota.patent" name="patent" type="text" class="form-control" placeholder="Patente">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]="flota.chassisNumber" name="chassisNumber" type="text" class="form-control"
+                     placeholder="Número Chasis">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]="flota.year" name="year" type="text" class="form-control" placeholder="Año">
+            </div>
+            <div class="mb-3">
+              <button routerLink="/funciones/vehiculos-control" class="btn btn btn-secondary btn-lg float-start">
+                Volver
+              </button>
+              <button type="submit" class="btn btn btn-success btn-lg float-end">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

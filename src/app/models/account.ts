@@ -36,7 +36,7 @@ export class GPS {
     public clientId: String,
     public clientSecretId: String,
     public isActive: boolean,
-    public installed: boolean
+    public isInstalled: boolean
   ) {
   }
 }
