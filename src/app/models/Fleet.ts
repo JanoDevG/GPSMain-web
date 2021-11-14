@@ -8,3 +8,10 @@ export class Fleet {
               public year: number) {
   }
 }
+
+export class ListFleetsResponse {
+  constructor(public status: String,
+              public body: Array<Fleet>) {
+
+  }
+}
