@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, observable} from 'rxjs';
 import {Usuario} from '../../models/usuario';
-import {account} from '../../models/account';
+import {account, GPS} from '../../models/account';
 import {GPSResponse} from '../../funciones/paginas/usuarios/control-gps/GPSResponse';
+import {ResponseString} from '../../models/ResponseString';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,14 @@ export class GpsService {
 
   eliminarGPS(gpsId: String) {
     return this.http.delete(this.url + 'gps/delete-gps', this.headersGPSDelete(gpsId));
+  }
+
+  activarGPS(gps: GPS) {
+    return this.http.put<ResponseString>(this.url + 'gps/activate-gps', gps, this.headersGPSGet());
+  }
+
+  desactivarGPS(gps: GPS) {
+    return this.http.put<ResponseString>(this.url + 'gps/invalidate-gps', gps, this.headersGPSGet());
   }
 
 }

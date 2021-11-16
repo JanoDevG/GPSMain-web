@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {GPS, response} from '../../../../models/account';
 import {GpsService} from '../../../../services/supervisor/gps.service';
 import {GPSResponse} from './GPSResponse';
+import {ResponseString} from '../../../../models/ResponseString';
 
 @Component({
   selector: 'gpsmain-control-gps',
@@ -30,6 +31,18 @@ export class ControlGpsComponent implements OnInit {
       this.router.navigate(['/panel/supervisor']);
     }, error => {
       console.log('cuenta no se pudo eliminar: ' + error);
+    });
+  }
+
+  activarGPS(gps: GPS) {
+    this.apiGps.activarGPS(gps).subscribe((response: ResponseString) => {
+      this.router.navigate(['/panel/supervisor']);
+    });
+  }
+
+  desactivarGPS(gps: GPS) {
+    this.apiGps.desactivarGPS(gps).subscribe((response: ResponseString) => {
+      this.router.navigate(['/panel/supervisor']);
     });
   }
 
