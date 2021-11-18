@@ -32,6 +32,7 @@ export class PrincipalComponent implements OnInit {
     localStorage.removeItem('apellidos');
     localStorage.removeItem('clientsecret');
     localStorage.removeItem('supervisorMail');
+    localStorage.removeItem('clientSecret');
 
 
   }

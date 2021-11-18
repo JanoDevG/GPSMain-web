@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CrearUsuarioComponent} from './components/crear-usuario/crear-usuario.component';
 import {ListarUsuarioComponent} from './components/listar-usuario/listar-usuario.component';
+import {RutaComponent} from './Mapa/paginas/ruta/ruta.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'crear-usuario', component: CrearUsuarioComponent},
   {path: 'editar-usuario/:id', component: CrearUsuarioComponent},
   {path: 'listar-usuario', component: ListarUsuarioComponent},
+  {path: 'mapa', component: RutaComponent},
   {
     path: '**',
     redirectTo: 'inicio/home'
