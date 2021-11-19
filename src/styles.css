@@ -25,7 +25,7 @@ html, body {
   width: 50px;
   height: 50px;
   /*background-color: red;*/
-  background-image: url("./assets/image/moto.png");
+  background-image: url("/assets/image/moto.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

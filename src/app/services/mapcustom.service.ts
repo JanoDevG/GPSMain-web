@@ -101,7 +101,7 @@ try{
 
 this.httpClient.get(url).subscribe((res:any)=>{
   const data = res.routes[0];
-const route= data.geometry.coordinates;
+const route = data.geometry.coordinates;
 
   this.map.addSource('route',{
     type:'geojson',
@@ -176,7 +176,7 @@ console.log('*********',url)
 
 
 // @ts-ignore
-  addMarkerCustom(coords):void{
+  addMarkerCustom(coords):void   {
 
     console.log('----------->', coords);
 

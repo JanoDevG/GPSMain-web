@@ -16,7 +16,7 @@ const io = require('socket.io')(server, {
 io.on('connection', (socket) => {
 
     socket.on('find-driver', ({points}) => {
-        console.log('......', points);
+        console.log('...se...', points);
 
         const counter = setInterval(() => {
             const coords = points.shift();
@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
             } else {
                 socket.emit('position', {coords});
             }
-        }, 5000)
+        }, 1000)
     })
 })
 
