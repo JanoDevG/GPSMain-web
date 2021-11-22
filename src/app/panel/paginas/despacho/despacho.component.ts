@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Fleet} from '../../../models/Fleet';
+import {FleetService} from '../../../services/supervisor/fleet.service';
 
 @Component({
   selector: 'gpsmain-despacho',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DespachoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiFleet: FleetService) {
+  }
+
+  flotas: Array<Fleet> = new Array<Fleet>();
+  nameBackoffice: String = '';
 
   ngOnInit(): void {
+    this.nameBackoffice = String(localStorage.getItem('clave'));
+    this.apiFleet.obtenerFlotas().subscribe(value => {
+      this.flotas = value.body;
+    }, error => {
+      console.log('No se pueden obtener flotas: ' + error);
+    });
+  }
+
+  gestionarFlota(fleet: Fleet){
+
   }
 
 }

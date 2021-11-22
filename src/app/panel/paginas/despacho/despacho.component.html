@@ -1,25 +1,20 @@
 <body>
 <div class="d-flex" id="content-wrapper">
-
-
   <div class="w-100">
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <div class="container">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <h1 class="text-success">GPSMain</h1>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diego Velázquez
+                {{nameBackoffice}}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Mi perfil</a>
@@ -36,7 +31,6 @@
 
     <!-- Page Content -->
     <div id="content" class="bg-grey w-100">
-
       <section class="bg-light py-3">
         <div class="container">
           <div class="row">
@@ -50,126 +44,43 @@
           </div>
         </div>
       </section>
-
-
-
       <div class="container mt-5">
-
-
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
             <div class="card">
               <div class="card-body text-center">
-
-                <span class="titulo">Listado De Flota</span>
-
-
+                <span class="titulo">Listado De Flotas Asignadas</span>
                 <table class="table table-striped mt-5 ">
                   <thead>
                   <tr>
                     <th scope="col">Modelo</th>
                     <th scope="col">Patente</th>
-                    <th scope="col">instalado</th>
+                    <th scope="col">GPS instalado</th>
                     <th scope="col">Estado</th>
-
-
-
-
                     <th scope="col"></th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr >
-                    <td>Citroen</td>
-                    <td>PLSQ-21</td>
-                    <td>si</td>
-
-
+                  <tr *ngFor="let fleet of flotas">
+                    <td>{{fleet.carName}}</td>
+                    <td>{{fleet.patent}}</td>
+                    <td *ngIf="fleet.gpsAssigned == ''">No</td>
+                    <td *ngIf="fleet.gpsAssigned != ''">Si</td>
                     <td>
                       <h6 class="text-success"><i class="fas fa-circle"></i></h6>
                     </td>
-
-
                     <td>
-
-
-                      <button  class="btn btn-success float-end" >Ver</button>
-
-
+                      <button (click)="gestionarFlota(fleet)" class="btn btn-success float-end">Gestionar Flota</button>
                     </td>
-
                   </tr>
-                  <tr >
-                    <td>Citroen</td>
-                    <td>PLSQ-21</td>
-                    <td>si</td>
-                    <td>
-                      <h6 class="text-success"><i class="fas fa-circle"></i></h6>
-                    </td>
-
-
-                    <td>
-
-
-                      <button  class="btn btn-success float-end" >Ver</button>
-
-
-                    </td>
-
-                  </tr>
-                  <tr >
-                    <td>Citroen</td>
-                    <td>PLSQ-21</td>
-                    <td>si</td>
-                    <td>
-                      <h6 class="text-danger"><i class="fas fa-circle"></i></h6>
-                    </td>
-
-
-                    <td>
-
-
-                      <button  class="btn btn-success float-end" >Ver</button>
-
-
-                    </td>
-
-                  </tr>
-
-
-
-
-
-
-
-
-
-
                   </tbody>
                 </table>
-
-
-
               </div>
-
-
-
             </div>
-
           </div>
-
-
-
         </div>
-
-
-
-
       </div>
-
-
     </div>
-
   </div>
 </div>
 

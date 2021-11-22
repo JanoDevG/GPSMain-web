@@ -3,8 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../../services/login.service';
 import {UserLogin} from './login';
 import {response} from '../../../models/account';
-import { ActivatedRoute, Router } from '@angular/router';
-import {Usuario} from "../../../models/usuario";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'gpsmain-login',
@@ -51,22 +50,33 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/panel/supervisor']);
             break;
           case 'backoffice':
+            this.apilogin.getClietnSecret(response.body).subscribe(value => {
+              localStorage.setItem('clientSecret', String(value.body));
+            }, error => {
+              console.error('no se puede guardar clientSecret para backffice: ' + error);
+            });
             this.router.navigate(['/panel/despacho']);
             break;
           case 'manager':
+            this.apilogin.getClietnSecret(response.body).subscribe(value => {
+              localStorage.setItem('clientSecret', String(value.body));
+            }, error => {
+              console.error('no se puede guardar clientSecret para backffice: ' + error);
+            });
             this.router.navigate(['/panel/gerente']);
             break;
         }
       }
       account = response;
-      console.log("body: " + JSON.stringify(response))
+      console.log('body: ' + JSON.stringify(response));
 
-      console.log("nombre empresa:" + account.body.businessName)
+      console.log('nombre empresa:' + account.body.businessName);
 
 
-     localStorage.setItem('clave',String(account.body.names));
-     localStorage.setItem('apellidos',String(account.body.surnames));
-     localStorage.setItem('supervisorMail',String(account.body.mail));
+      localStorage.setItem('clave', String(account.body.names));
+      localStorage.setItem('apellidos', String(account.body.surnames));
+      localStorage.setItem('supervisorMail', String(account.body.mail));
+      localStorage.setItem('businessName', String(account.body.businessName));
 
     }, error => {
 

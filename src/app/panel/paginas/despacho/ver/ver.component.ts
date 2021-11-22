@@ -9,7 +9,12 @@ export class VerComponent implements OnInit {
 
   constructor() { }
 
+  nameBackOffice : String = '';
+  businessName : String = '';
+
   ngOnInit(): void {
+    this.nameBackOffice = String(localStorage.getItem('clave'));
+    this.businessName = String(localStorage.getItem('businessName'));
   }
 
 }
