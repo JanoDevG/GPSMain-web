@@ -28,6 +28,7 @@ export class SupervisorComponent implements OnInit {
     localStorage.removeItem('apellidos');
     localStorage.removeItem('clientsecret');
     localStorage.removeItem('supervisorMail');
+    localStorage.removeItem('clientSecret');
 
 
   }

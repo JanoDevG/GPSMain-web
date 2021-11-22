@@ -1,0 +1,38 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Listado de Flotas</span>
+          <button class="btn btn-success float-end" routerLink="/funciones/backoffice-agregar">Nueva Flota
+          </button>
+          <table class="table table-striped mt-5 ">
+            <thead>
+            <tr>
+              <th scope="col">Nombre vehiculo</th>
+              <th scope="col">Patente</th>
+              <th scope="col">Numero chasis</th>
+              <th scope="col">Año del vehiculo</th>
+              <th scope="col">GPS ASIGNADO</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Citroen berlingo</td>
+              <td>PLSD88</td>
+              <td>1234192378123129</td>
+              <td>2017</td>
+              <td>NO</td>
+              <td>
+                <button class="btn btn-danger m-sm-2" type="submit" > Eliminar</button>
+              </td>
+            </tbody>
+          </table>
+        </div>
+        <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
+      </div>
+    </div>
+  </div>
+</div>

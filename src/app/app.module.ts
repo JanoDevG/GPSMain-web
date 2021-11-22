@@ -11,6 +11,11 @@ import {ToastrModule} from 'ngx-toastr';
 import {HttpClientModule} from '@angular/common/http';
 import {Router, RouterModule} from '@angular/router';
 import { AgregarFlotaComponent } from './funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
+import { RutaComponent } from './Mapa/paginas/ruta/ruta.component';
+import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+
+
+const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
 
 
 @NgModule({
@@ -19,11 +24,13 @@ import { AgregarFlotaComponent } from './funciones/paginas/usuarios/control-vehi
     CrearUsuarioComponent,
     ListarUsuarioComponent,
     AgregarFlotaComponent,
+    RutaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    SocketIoModule.forRoot(config),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,

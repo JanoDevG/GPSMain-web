@@ -8,6 +8,10 @@ import { SupervisorComponent } from './paginas/supervisor/supervisor.component';
 import { EliminarEmpresaComponent } from './paginas/principal/eliminar-empresa/eliminar-empresa.component';
 import {FormsModule} from '@angular/forms';
 import { GerenteComponent } from './paginas/gerente/gerente.component';
+import { FlotaComponent } from './paginas/flota/flota.component';
+import { AgregarFlotaComponent } from './paginas/Flota/agregar-flota/agregar-flota.component';
+import { VerComponent } from './paginas/despacho/ver/ver.component';
+import { HorarioComponent } from './paginas/despacho/horario/horario.component';
 
 
 
@@ -19,6 +23,10 @@ import { GerenteComponent } from './paginas/gerente/gerente.component';
     SupervisorComponent,
     EliminarEmpresaComponent,
     GerenteComponent,
+    FlotaComponent,
+    AgregarFlotaComponent,
+    VerComponent,
+    HorarioComponent,
 
   ],
   imports: [
