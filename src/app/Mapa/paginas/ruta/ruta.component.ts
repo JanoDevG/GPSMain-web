@@ -70,7 +70,7 @@ this.MapcustomService.addMarkerCustom(coords);
 
   drawRoute():void{
 
-    
+
 
 console.log('*******puntos de origen y destino',this.wayPoints);
 const coords =[

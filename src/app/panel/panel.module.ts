@@ -12,6 +12,7 @@ import { FlotaComponent } from './paginas/flota/flota.component';
 import { AgregarFlotaComponent } from './paginas/Flota/agregar-flota/agregar-flota.component';
 import { VerComponent } from './paginas/despacho/ver/ver.component';
 import { HorarioComponent } from './paginas/despacho/horario/horario.component';
+import { DestinosComponent } from './paginas/despacho/destinos/destinos.component';
 
 
 
@@ -27,6 +28,7 @@ import { HorarioComponent } from './paginas/despacho/horario/horario.component';
     AgregarFlotaComponent,
     VerComponent,
     HorarioComponent,
+    DestinosComponent,
 
   ],
   imports: [
