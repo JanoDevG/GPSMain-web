@@ -16,7 +16,7 @@ export class AgregarFlotaComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-  flota: Fleet = new Fleet('', '', '', '', '', '', 0);
+  flota: Fleet = new Fleet('', '', '', '', '', '', false, 0);
 
   ngOnInit(): void {
   }

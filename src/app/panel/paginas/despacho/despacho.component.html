@@ -64,9 +64,12 @@
                   <tr *ngFor="let fleet of flotas">
                     <td>{{fleet.carName}}</td>
                     <td>{{fleet.patent}}</td>
-                    <td *ngIf="fleet.gpsAssigned == ''">No</td>
-                    <td *ngIf="fleet.gpsAssigned != ''">Si</td>
-                    <td>
+                    <td *ngIf="fleet.gpsAssigned === null">No</td>
+                    <td *ngIf="fleet.gpsAssigned != '' && fleet.gpsAssigned != null">Si</td>
+                    <td *ngIf="fleet.gpsAssigned == null">
+                      <h6 class="text-danger"><i class="fas fa-circle"></i></h6>
+                    </td>
+                    <td *ngIf="fleet.gpsAssigned != null">
                       <h6 class="text-success"><i class="fas fa-circle"></i></h6>
                     </td>
                     <td>
@@ -75,6 +78,7 @@
                   </tr>
                   </tbody>
                 </table>
+
               </div>
             </div>
           </div>

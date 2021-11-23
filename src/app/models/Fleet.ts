@@ -5,6 +5,7 @@ export class Fleet {
               public carName: String,
               public patent: String,
               public chassisNumber: String,
+              public statusGPS: boolean,
               public year: number) {
   }
 }
