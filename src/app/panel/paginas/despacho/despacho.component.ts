@@ -3,6 +3,7 @@ import {Fleet} from '../../../models/Fleet';
 import {FleetService} from '../../../services/supervisor/fleet.service';
 import {GpsService} from '../../../services/supervisor/gps.service';
 import {GPS} from '../../../models/account';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'gpsmain-despacho',
@@ -12,7 +13,8 @@ import {GPS} from '../../../models/account';
 export class DespachoComponent implements OnInit {
 
   constructor(private apiFleet: FleetService,
-              private apiGPS: GpsService) {
+              private apiGPS: GpsService,
+              private router: Router) {
   }
 
   flotas: Array<Fleet> = new Array<Fleet>();
@@ -36,7 +38,8 @@ export class DespachoComponent implements OnInit {
   }
 
   gestionarFlota(fleet: Fleet) {
-
+    localStorage.setItem('patente', String(fleet.patent));
+    this.router.navigate(['/panel/despacho/Ver']);
   }
 
 }

@@ -3,15 +3,15 @@
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <div class="card-body text-center">
-          <span class="titulo">Listado de Destinos </span>
-
+          <span class="titulo">Listado de destinos configurados para hoy</span>
+          <button class="btn btn-success float-end" routerLink="/funciones/gps-agregar">Ingresar nueva ruta</button>
           <table class="table table-striped mt-5 ">
             <thead>
             <tr>
-              <th scope="col">Patente</th>
-              <th scope="col">Gps</th>
               <th scope="col">Inicio</th>
               <th scope="col">Final</th>
+              <th scope="col">Fecha partida</th>
+              <th scope="col">Fecha llegada (Estimado)</th>
               <th scope="col"></th>
             </tr>
             </thead>
@@ -22,7 +22,7 @@
               <td></td>
               <td></td>
               <td>
-                <button class="btn btn-danger m-sm-2" type="submit" > Eliminar</button>
+                <button class="btn btn-danger m-sm-2" type="submit" >Eliminar</button>
               </td>
             </tbody>
           </table>
