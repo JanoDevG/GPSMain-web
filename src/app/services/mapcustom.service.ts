@@ -68,7 +68,7 @@ try{
     const {result}= $event;
 
     geocoder.clear();
-    console.log('event',result)
+    console.log('event carga',result)
     this.cbAddress.emit(result);
 
   })
@@ -133,7 +133,7 @@ const route = data.geometry.coordinates;
     },
 
     paint:{
-      'line-color':'red',
+      'line-color':'green',
       'line-width':5
 
 

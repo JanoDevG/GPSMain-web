@@ -45,8 +45,11 @@
               <p class="lead text-muted">empresa {{businessName}}</p>
             </div>
             <div class="col-lg-3 col-md-4 d-flex">
-              <button class="btn btn-success w-100 align-self-center">Volver</button>
+              <button routerLink="/panel/despacho" class="btn btn-success w-100 align-self-center">Activar Ruta</button>
+
             </div>
+
+
           </div>
         </div>
       </section>
@@ -57,7 +60,7 @@
       <div class="col-lg-4 my-3">
         <div class="card rounded-0">
           <div class="card-header bg-light">
-            <h6 class="font-weight-bold mb-0 text-center">Ver GPS</h6>
+            <h6 class="font-weight-bold mb-0 text-center">Cotrolar GPS</h6>
           </div>
           <div class="card-body pt-2">
             <div class="d-flex border-bottom py-2">
@@ -70,7 +73,7 @@
                 <small class="d-block text-muted">VTR</small>
               </div>
             </div>
-            <button routerLink="/funciones/backoffice-control" class="btn btn-danger w-100">Ver Ubicacion</button>
+            <button routerLink="/mapa" class="btn btn-danger w-100">Ver Ubicacion</button>
           </div>
         </div>
       </div>
@@ -94,7 +97,7 @@
                 <small class="d-block text-muted">VTR</small>
               </div>
             </div>
-            <button routerLink="/funciones/gerentes-control" class="btn btn-danger w-100">Ver Ruta</button>
+            <button routerLink="/panel/despacho/Destinos" class="btn btn-danger w-100">Ver Ruta</button>
           </div>
         </div>
       </div>
@@ -123,7 +126,11 @@
         </div>
       </div>
 
+
+
+
 </div>
+        <button routerLink="/panel/despacho" class="btn btn-secondary w-100 align-self-center">Volver</button>
 </div>
 
     </div>
