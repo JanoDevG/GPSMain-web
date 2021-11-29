@@ -14,7 +14,8 @@
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
               <th scope="col">Email</th>
-              <th scope="col"></th>
+              <th scope="col">Opciones</th>
+              <th>
             </tr>
             </thead>
             <tbody>
@@ -23,7 +24,10 @@
               <td>{{account.surnames}}</td>
               <td>{{account.mail}}</td>
               <td>
-                <button class="btn btn-danger m-sm-2" type="submit" (click)="eliminarCuenta(account)"> Eliminar</button>
+                <button class="btn btn-danger m-sm-2" type="submit" (click)="eliminarCuenta(account)">Eliminar</button>
+              </td>
+              <td>
+                <button class="btn btn-primary m-sm-2" type="submit" (click)="eliminarCuenta(account)">Gestionar GPS's</button>
               </td>
             </tbody>
           </table>

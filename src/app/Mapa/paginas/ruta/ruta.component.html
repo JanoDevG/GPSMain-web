@@ -1,52 +1,26 @@
-
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet">
-
-
-
-
-
 <div class="wrapper">
 <div class="box-inputs">
-
 <div id="geocoder" #asGeoCoder  class="geocoder">Buscar</div>
-
   <div  (click)="changeMode('start')"  [ngClass]="{ 'active-way':modeInput === 'start'}">
 <div class="mock-label">Inicio</div>
 <div class="mock-input">{{wayPoints?.start?.place_name}}</div>
-
   </div>
-
-
   <div  (click)="changeMode('end')"  [ngClass]="{ 'active-way':modeInput === 'end'}">
     <div class="mock-label">Final</div>
     <div class="mock-input">{{wayPoints?.end?.place_name}}</div>
-
-
   </div>
   <button (click)="drawRoute()" class=" btn-success " >Dibujar Ruta</button>
-
 </div>
-
-
 </div>
-
-
-
 <div class="wrapper">
  <div id="map" #asMap class="map-container"></div>
-
 </div>
-
-
 <div class="wrapper">
-
   <button (click)="testMarker()" class="btn-success" >marcador</button>
-
 </div>
-
 <div class="wrapper">
   <button routerLink="/panel/despacho/Ver" class="btn-danger m-1" >Volver</button>
-  <button routerLink="/panel/despacho/Ver" class="btn-success m-1" >Agregar Destino a Ruta</button>
-
+  <button (click)="guardarRuta()" routerLink="/panel/despacho/Ver" class="btn-success m-1" >Agregar Destino a Ruta</button>
 </div>

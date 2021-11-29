@@ -72,7 +72,7 @@
                     <td *ngIf="fleet.gpsAssigned != null">
                       <h6 class="text-success"><i class="fas fa-circle"></i></h6>
                     </td>
-                    <td>
+                    <td *ngIf="fleet.gpsAssigned != null">
                       <button (click)="gestionarFlota(fleet)" class="btn btn-success float-end">Gestionar Flota</button>
                     </td>
                   </tr>
