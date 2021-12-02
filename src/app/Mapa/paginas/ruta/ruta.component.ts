@@ -46,11 +46,9 @@ export class RutaComponent implements OnInit {
       if(this.modeInput=== 'start'){
         this.wayPoints.start = getPoint;
 
-
       }
       if(this.modeInput=== 'end'){
         this.wayPoints.end = getPoint;
-
 
       }
 
@@ -70,8 +68,6 @@ this.MapcustomService.addMarkerCustom(coords);
 
   drawRoute():void{
 
-
-
 console.log('*******puntos de origen y destino',this.wayPoints);
 const coords =[
   this.wayPoints.start.center,
@@ -84,6 +80,32 @@ const coords =[
 this.MapcustomService.loadCoords(coords)
   }
 
+
+cargarruta():void{
+
+  const coords =[
+    this.wayPoints.start.center,
+    this.wayPoints.end.center
+
+
+  ];
+
+  this.MapcustomService.guardarcoord(coords)
+
+}
+
+  Rescatarnombre():void{
+
+    const coords =[
+      this.wayPoints.start.place_name,
+      this.wayPoints.end.place_name
+
+
+    ];
+
+    this.MapcustomService.nombreslugares(coords)
+
+  }
 
 
 

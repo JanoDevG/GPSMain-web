@@ -9,11 +9,15 @@ import {join} from "path";
 import {HttpClient} from "@angular/common/http";
 import {Socket} from "ngx-socket-io";
 import {find} from "rxjs/operators";
+import {cpus} from "os";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MapcustomService {
+
+
 
   cbAddress:EventEmitter<any> = new EventEmitter<any>();
 
@@ -92,6 +96,10 @@ try{
 
   loadCoords(coords: any[][]): void {
     console.log('--------',coords);
+
+
+
+
 
     const url = [
       `https://api.mapbox.com/directions/v5/mapbox/driving/`,
@@ -172,7 +180,63 @@ this.map.fitBounds([route[0],route[route.length-1]],{
 
 
 console.log('*********',url)
+
   }
+
+guardarcoord(coords:any[][]) :void{
+
+
+
+    var corde ;
+  localStorage.setItem('cordenadas',JSON.stringify(coords));
+
+  var cordenadas = localStorage.getItem('cordenadas')
+
+   // @ts-ignore
+  corde = JSON.parse(cordenadas);
+
+  console.log('codenadas Jsoncompleto',corde)
+  console.log('codenadas ',cordenadas)
+
+  for( var i = 0;i < coords.length; i++){
+
+    console.log('cordenada numero '+(i+1),coords[i]);
+  }
+var posicion1 : any;
+var posicion2 : any;
+var posicion3: any;
+var posicion4 : any;
+
+  posicion1 = coords[0][0];
+  posicion2= coords[0][1];
+  posicion3 = coords[1][0];
+  posicion4 = coords[1][1];
+
+  console.log('Longitud cordenada 1 '+posicion1)
+  console.log('Latitud cordenada 1'+posicion2)
+  console.log('Longitud cordenada 2'+posicion3)
+  console.log('latitud cordenada 2'+posicion4)
+
+
+
+
+
+}
+
+  nombreslugares(coords:any[]) :void{
+
+
+    var nombre1 : any;
+    var nombre2 : any;
+
+    nombre1=coords[0];
+    nombre2=coords[1];
+
+console.log('nombre inicio',nombre1);
+console.log('nombre final',nombre2);
+
+  }
+
 
 
 // @ts-ignore
@@ -195,3 +259,5 @@ this.markerDriver.setLngLat(coords).addTo(this.map);
 
 
 }
+
+
