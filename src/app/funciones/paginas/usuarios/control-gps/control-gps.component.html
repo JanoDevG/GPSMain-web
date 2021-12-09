@@ -11,17 +11,26 @@
             <tr>
               <th scope="col">iD GPS</th>
               <th scope="col">estado</th>
-              <th scope="col">instalado</th>
+              <th scope="col">Instalación</th>
+              <th scope="col">Opciones</th>
               <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let gps of gPSs">
               <td>{{gps._id}}</td>
-              <td>{{gps.isActive}}</td>
-              <td>{{gps.installed}}</td>
+              <td *ngIf="gps.isActive === true">GPS Activado</td>
+              <td *ngIf="gps.isActive === false">GPS Desactivado</td>
+              <td *ngIf="gps.isInstalled === true">GPS Instalado</td>
+              <td *ngIf="gps.isInstalled === false">GPS no instalado</td>
               <td>
                 <button (click)="eliminarGPS(gps)" class="btn btn-danger float-end">Eliminar</button>
+              </td>
+              <td *ngIf="gps.isActive === false">
+                <button (click)="activarGPS(gps)" class="btn btn-outline-success">Activar</button>
+              </td>
+              <td *ngIf="gps.isActive === true">
+                <button (click)="desactivarGPS(gps)" class="btn btn-outline-warning">Desactivar</button>
               </td>
             </tbody>
           </table>

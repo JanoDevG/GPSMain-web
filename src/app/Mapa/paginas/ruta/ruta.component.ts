@@ -126,6 +126,10 @@ cargarruta():void{
     this.MapcustomService.addMarkerCustom([-70.60833957104123,-33.55410112177]);
 
   }
+  guardarRuta(){
+    alert('Ruta guardada.');
+  }
+
 }
 
 

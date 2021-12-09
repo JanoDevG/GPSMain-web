@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'gpsmain-horario',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HorarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
+
+  horaInicio: String = '';
+  horaFin: String = '';
 
   ngOnInit(): void {
+  }
+
+  configurarHorario() {
+    alert('Horario hábil configurado.');
+    this.router.navigate(['/panel/despacho/Ver']);
   }
 
 }

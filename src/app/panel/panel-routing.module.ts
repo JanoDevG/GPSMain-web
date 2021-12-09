@@ -10,13 +10,7 @@ import {EliminarEmpresaComponent} from './paginas/principal/eliminar-empresa/eli
 import {GerenteComponent} from './paginas/gerente/gerente.component';
 import {AuthGuard} from '../guards/auth.guard';
 import { FlotaComponent } from './paginas/flota/flota.component';
-import { AgregarFlotaComponent } from './paginas/Flota/agregar-flota/agregar-flota.component';
-
-
-
-
-
-
+import {AgregarFlotaComponent} from '../funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
 
 const routes: Routes = [
   {

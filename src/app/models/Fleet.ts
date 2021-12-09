@@ -5,6 +5,14 @@ export class Fleet {
               public carName: String,
               public patent: String,
               public chassisNumber: String,
+              public statusGPS: boolean,
               public year: number) {
+  }
+}
+
+export class ListFleetsResponse {
+  constructor(public status: String,
+              public body: Array<Fleet>) {
+
   }
 }

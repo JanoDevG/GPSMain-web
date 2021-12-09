@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {GPSResponse} from '../../funciones/paginas/usuarios/control-gps/GPSResponse';
+import {Fleet, ListFleetsResponse} from '../../models/Fleet';
+import {ResponseString} from '../../models/ResponseString';
 
 @Injectable({
   providedIn: 'root'
@@ -13,28 +14,12 @@ export class FleetService {
   constructor(private http: HttpClient) {
   }
 
-  private headersFleetGet() {
-    let headers = {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-      'Xmail': String(localStorage.getItem('supervisorMail')),
-      'XclientSecret': String(localStorage.getItem('clientSecret'))
-    };
-    let requestOptions = {
-      headers: new HttpHeaders(headers),
-    };
-    return requestOptions;
-  }
-
-  private headersFleetDelete(gpsId: String) {
+  private headersGetAllFleets() {
     let headers = {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
       'Xmail': String(localStorage.getItem('supervisorMail')),
       'XclientSecret': String(localStorage.getItem('clientSecret')),
-      'XgpsId': String(gpsId),
-      'Xoption': 'DELETE'
-
     };
     let requestOptions = {
       headers: new HttpHeaders(headers),
@@ -42,33 +27,78 @@ export class FleetService {
     return requestOptions;
   }
 
-  private headersFleetCreate() {
-    let headers = {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-      'Xmail': String(localStorage.getItem('supervisorMail')),
-      'XclientSecret': String(localStorage.getItem('clientSecret')),
-      'Xoption': 'CREATE'
-
-    };
+  private assignedGPS(fleet: Fleet, option: String) {
+    let headers;
+    if (option == 'ASSIGNER') {
+      headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Xmail': String(localStorage.getItem('supervisorMail')),
+        'XclientSecret': String(localStorage.getItem('clientSecret')),
+        'xfleetPatent': String(fleet.patent),
+        'Xoption': String(option)
+      };
+    } else {
+      headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Xmail': String(localStorage.getItem('supervisorMail')),
+        'XclientSecret': String(localStorage.getItem('clientSecret')),
+        'xfleetPatent': String(fleet.patent),
+        'Xoption': String(option)
+      };
+    }
     let requestOptions = {
       headers: new HttpHeaders(headers),
     };
     return requestOptions;
   }
-/*
+
+  private headersCD(fleet: Fleet, option: String) {
+    let headers;
+    if (option == 'CREATE') {
+      headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Xmail': String(localStorage.getItem('supervisorMail')),
+        'XclientSecret': String(localStorage.getItem('clientSecret')),
+        'Xoption': 'CREATE'
+      };
+    } else {
+      headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Xmail': String(localStorage.getItem('supervisorMail')),
+        'XclientSecret': String(localStorage.getItem('clientSecret')),
+        'Xoption': 'DELETE',
+        'XfleetPatent': String(fleet.patent)
+      };
+    }
+
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return requestOptions;
+  }
+
   obtenerFlotas() {
-    return this.http.get<GPSResponse>(this.url + 'gps/get-all-gps', this.headersGPSGet());
+    return this.http.get<ListFleetsResponse>(this.url + 'fleet/get-all-fleets', this.headersGetAllFleets());
   }
 
-  crearGPS() {
-    return this.http.post(this.url + 'gps/create-gps', null, this.headersGPSCreate());
+  crearFlota(fleet: Fleet) {
+    return this.http.post<ResponseString>(this.url + 'fleet/create-fleet', fleet, this.headersCD(fleet, 'CREATE'));
   }
 
-  eliminarGPS(gpsId: String) {
-    return this.http.delete(this.url + 'gps/delete-gps', this.headersGPSDelete(gpsId));
+  eliminarFlota(fleet: Fleet) {
+    return this.http.delete<ResponseString>(this.url + 'fleet/delete-fleet', this.headersCD(fleet, 'DELETE'));
   }
 
- */
+  asignarGPS(fleet: Fleet) {
+    return this.http.post<ResponseString>(this.url + 'fleet/assigned-gps', null, this.assignedGPS(fleet, 'ASSIGNER'));
+  }
+
+  removerGPS(fleet: Fleet) {
+    return this.http.post<ResponseString>(this.url + 'fleet/remove-gps', null, this.assignedGPS(fleet, 'REMOVE'));
+  }
 
 }

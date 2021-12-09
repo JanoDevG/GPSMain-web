@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AgregarGpsComponent } from './agregar-gps.component';
+import { AgregarFlotaComponent } from './agregar-flota.component';
 
-describe('AgregarGpsComponent', () => {
-  let component: AgregarGpsComponent;
-  let fixture: ComponentFixture<AgregarGpsComponent>;
+describe('AgregarFlotaComponent', () => {
+  let component: AgregarFlotaComponent;
+  let fixture: ComponentFixture<AgregarFlotaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AgregarGpsComponent ]
+      declarations: [ AgregarFlotaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AgregarGpsComponent);
+    fixture = TestBed.createComponent(AgregarFlotaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

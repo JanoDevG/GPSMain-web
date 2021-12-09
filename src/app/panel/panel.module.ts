@@ -15,8 +15,6 @@ import { HorarioComponent } from './paginas/despacho/horario/horario.component';
 import { DestinosComponent } from './paginas/despacho/destinos/destinos.component';
 
 
-
-
 @NgModule({
   declarations: [
     PrincipalComponent,
@@ -29,7 +27,6 @@ import { DestinosComponent } from './paginas/despacho/destinos/destinos.componen
     VerComponent,
     HorarioComponent,
     DestinosComponent,
-
   ],
   imports: [
     CommonModule,

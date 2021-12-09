@@ -19,7 +19,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diego Velázquez
+                {{nameBackOffice}}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Mi perfil</a>
@@ -41,8 +41,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-9 col-md-8">
-              <h1 class="font-weight-bold mb-0">Control ***Patente****</h1>
-              <p class="lead text-muted">empresa VTR</p>
+              <h1 class="font-weight-bold mb-0">Gestión para flota: {{patent}}</h1>
+              <p class="lead text-muted">empresa {{businessName}}</p>
             </div>
             <div class="col-lg-3 col-md-4 d-flex">
               <button routerLink="/panel/despacho" class="btn btn-success w-100 align-self-center">Activar Ruta</button>
@@ -121,7 +121,7 @@
               </div>
             </div>
 
-            <button routerLink="/panel/despacho/Horario" class="btn btn-danger w-100">Ver Horario Funcionario</button>
+            <button routerLink="/panel/despacho/Horario" class="btn btn-danger w-100">Gestionar horario de uso</button>
           </div>
         </div>
       </div>
