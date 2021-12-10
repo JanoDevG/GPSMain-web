@@ -1,6 +1,7 @@
 import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {MapcustomService} from '../../../services/mapcustom.service';
 import {Socket} from 'ngx-socket-io';
+import {CoordenadasService} from '../../../services/supervisor/coordenate.service';
 
 @Component({
   selector: 'gpsmain-ruta',
@@ -16,7 +17,8 @@ export class RutaComponent implements OnInit {
   wayPoints: Waypoints = {start: null, end: null};
 
   constructor(private MapcustomService: MapcustomService, private renderer2: Renderer2,
-              private socket: Socket) {
+              private socket: Socket,
+              private coordinatesService: CoordenadasService) {
   }
 
   viaje: Viaje = new Viaje(new Partida('', new Array<Number>()), '', new Destino('', new Array<Number>()), new Array<Coordenadas>());
@@ -47,7 +49,8 @@ export class RutaComponent implements OnInit {
       console.log('desde server: ' + String(new Date()), coords);
       this.MapcustomService.addMarkerCustom(coords);
       this.viaje.coordenadas.push(new Coordenadas(coords, date.getHours(), date.getMinutes(), date.getSeconds(), date.getDay(), date.getMonth()));
-      // guardar coordenadas en API
+
+      this.coordinatesService.agregarCoordendas(this.viaje).subscribe();
     });
   }
 
@@ -58,12 +61,12 @@ export class RutaComponent implements OnInit {
       this.wayPoints.end.center
     ];
     this.MapcustomService.loadCoords(coords);
-    //guardar coordenadas e identificadores
     this.viaje.partida.partida = this.wayPoints.start.place_name_es;
     this.viaje.partida.coordenadas = this.wayPoints.start.center;
     this.viaje.destino.destino = this.wayPoints.end.place_name_es;
     this.viaje.destino.coordenadas = this.wayPoints.end.center;
     this.viaje.patente = String(localStorage.getItem('patente'));
+    this.coordinatesService.crearRuta(this.viaje).subscribe();
   }
 
   cargarruta(): void {
