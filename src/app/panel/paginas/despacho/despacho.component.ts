@@ -39,6 +39,7 @@ export class DespachoComponent implements OnInit {
 
   gestionarFlota(fleet: Fleet) {
     localStorage.setItem('patente', String(fleet.patent));
+    localStorage.setItem('idGPS', String(fleet.gpsAssigned));
     this.router.navigate(['/panel/despacho/Ver']);
   }
 
