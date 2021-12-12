@@ -114,18 +114,18 @@ export class Viaje {
 
 export class Partida {
   constructor(public partida: String,
-              public coordenadas: Array<Number>) {
+              public coordenadas: Array<String>) {
   }
 }
 
 export class Destino {
   constructor(public destino: String,
-              public coordenadas: Array<Number>) {
+              public coordenadas: Array<String>) {
   }
 }
 
 export class Coordenadas {
-  constructor(public coordenada: Array<Number>,
+  constructor(public coordenada: Array<String>,
               public hora: Number,
               public minuto: Number,
               public segundo: Number,
