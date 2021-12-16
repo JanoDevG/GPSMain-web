@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Viaje} from '../../Mapa/paginas/ruta/ruta.component';
+import {ResponseString} from '../../models/ResponseString';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class CoordenadasService {
 
   agregarCoordendas(viaje: Viaje) {
     return this.http.put(this.url + 'inset-coordinates', viaje, this.headers());
+  }
+
+  ingresarRuta(ruta: String[]) {
+    return this.http.post<ResponseString>(this.url + 'insert-new-route', ruta, this.headers());
   }
 
 }

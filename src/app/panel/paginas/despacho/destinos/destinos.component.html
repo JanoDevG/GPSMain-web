@@ -10,16 +10,19 @@
               <th scope="col">Inicio</th>
               <th scope="col">Final</th>
               <th scope="col">Fecha partida</th>
-              <th scope="col">Fecha llegada (Estimado)</th>
+              <th scope="col">Fecha llegada</th>
               <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr *ngFor="let viaje of viajes">
+              <td>{{viaje.partida.partida}}</td>
+              <td>{{viaje.destino.destino}}</td>
+              <td *ngIf="viaje.coordenadas.length > 0">{{viaje.coordenadas[0].dia}}/{{viaje.coordenadas[0].mes}}/2021 a
+                las: {{viaje.coordenadas[0].hora}}:{{viaje.coordenadas[0].minuto}}:{{viaje.coordenadas[0].segundo}}Hrs.
+              </td>
+              <td *ngIf="viaje.coordenadas.length == 0">viaje aún no iniciado</td>
+              <td>Viaje aún no finaliza</td>
               <td>
                 <button class="btn btn-danger m-sm-2" type="submit">Eliminar</button>
               </td>

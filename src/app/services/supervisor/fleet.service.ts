@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Fleet, ListFleetsResponse} from '../../models/Fleet';
 import {ResponseString} from '../../models/ResponseString';
+import {ResponseViaje} from 'src/app/Mapa/paginas/ruta/ruta.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,18 @@ export class FleetService {
       'Content-Type': 'application/json',
       'Xmail': String(localStorage.getItem('supervisorMail')),
       'XclientSecret': String(localStorage.getItem('clientSecret')),
+    };
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return requestOptions;
+  }
+
+  private headersGetFleet() {
+    let headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+      'Xpatent': String(localStorage.getItem('patente')),
     };
     let requestOptions = {
       headers: new HttpHeaders(headers),
@@ -79,6 +92,14 @@ export class FleetService {
       headers: new HttpHeaders(headers),
     };
     return requestOptions;
+  }
+
+  obtenerViajesDeFlota() {
+    return this.http.get<ResponseViaje>(this.url + 'gps/get-trips', this.headersGetFleet());
+  }
+
+  obtenerFlota() {
+    return this.http.get<Fleet>(this.url + 'fleet/get-fleet', this.headersGetFleet());
   }
 
   obtenerFlotas() {

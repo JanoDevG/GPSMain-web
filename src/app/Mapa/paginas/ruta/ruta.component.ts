@@ -2,6 +2,7 @@ import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {MapcustomService} from '../../../services/mapcustom.service';
 import {Socket} from 'ngx-socket-io';
 import {CoordenadasService} from '../../../services/supervisor/coordenate.service';
+import {ResponseString} from '../../../models/ResponseString';
 
 @Component({
   selector: 'gpsmain-ruta',
@@ -21,7 +22,7 @@ export class RutaComponent implements OnInit {
               private coordinatesService: CoordenadasService) {
   }
 
-  viaje: Viaje = new Viaje(new Partida('', new Array<Number>()), '', new Destino('', new Array<Number>()), new Array<Coordenadas>());
+  viaje: Viaje = new Viaje(new Partida('', new Array<String>()), '', new Destino('', new Array<String>()), new Array<Coordenadas>());
 
 
   ngOnInit(): void {
@@ -69,20 +70,19 @@ export class RutaComponent implements OnInit {
     this.coordinatesService.crearRuta(this.viaje).subscribe();
   }
 
-  cargarruta(): void {
-    const coords = [
-      this.wayPoints.start.center,
-      this.wayPoints.end.center
+  cargarruta() {
+    const coords: String[] = [
+      this.wayPoints.start.place_name_es,
+      this.wayPoints.end.place_name_es,
+      String(localStorage.getItem('patente'))
     ];
-    this.MapcustomService.guardarcoord(coords);
-  }
-
-  Rescatarnombre(): void {
-    const coords = [
-      this.wayPoints.start.place_name,
-      this.wayPoints.end.place_name
-    ];
-    this.MapcustomService.nombreslugares(coords);
+    this.coordinatesService.ingresarRuta(coords).subscribe((res: ResponseString) => {
+      if (res.status === 'OK') {
+        alert('ruta añadida con éxito');
+      } else {
+        alert('no se pudo añadir la nueva ruta.');
+      }
+    }, error => console.error(error.toString()));
   }
 
   changeMode(mode: string): void {
@@ -131,5 +131,11 @@ export class Coordenadas {
               public segundo: Number,
               public dia: Number,
               public mes: Number) {
+  }
+}
+
+export class ResponseViaje{
+  constructor(public status: String,
+              public body: Array<Viaje>) {
   }
 }

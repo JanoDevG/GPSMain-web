@@ -6,6 +6,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Socket} from 'ngx-socket-io';
+import {FleetService} from './supervisor/fleet.service';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class MapcustomService {
   wayPoints: Array<any> = [];
   markerDriver: any = null;
 
-  constructor(private httpClient: HttpClient, private socket: Socket) {
+  constructor(private httpClient: HttpClient, private socket: Socket, private fleetService: FleetService) {
     this.mapbox.accessToken = environment.mapPk;
   }
 
@@ -102,53 +103,22 @@ this.wayPoints = route;
 this.map.fitBounds([route[0],route[route.length-1]],{
   padding:100
 })
-  this.socket.emit('find-driver',{points:route});
+  this.socket.emit('find-driver', {points: route});
 });
-console.log('*********',url)
+    console.log('*********', url);
   }
 
-guardarcoord(coords:any[][]) :void{
-    var corde ;
-  localStorage.setItem('cordenadas',JSON.stringify(coords));
-  var cordenadas = localStorage.getItem('cordenadas')
-   // @ts-ignore
-  corde = JSON.parse(cordenadas);
-  console.log('codenadas Jsoncompleto',corde)
-  console.log('codenadas ',cordenadas)
-  for( var i = 0;i < coords.length; i++){
-    console.log('cordenada numero '+(i+1),coords[i]);
+  guardarcoord(coords: String[][]): void {
+    this.fleetService
   }
-var posicion1 : any;
-var posicion2 : any;
-var posicion3: any;
-var posicion4 : any;
-  posicion1 = coords[0][0];
-  posicion2= coords[0][1];
-  posicion3 = coords[1][0];
-  posicion4 = coords[1][1];
-  console.log('Longitud cordenada 1 '+posicion1)
-  console.log('Latitud cordenada 1'+posicion2)
-  console.log('Longitud cordenada 2'+posicion3)
-  console.log('latitud cordenada 2'+posicion4)
-}
-
-  nombreslugares(coords:any[]) :void{
-    var nombre1 : any;
-    var nombre2 : any;
-    nombre1=coords[0];
-    nombre2=coords[1];
-console.log('nombre inicio',nombre1);
-console.log('nombre final',nombre2);
-  }
-
 
 // @ts-ignore
-  addMarkerCustom(coords):void   {
+  addMarkerCustom(coords): void {
     console.log('----------->', coords);
-     const el = document.createElement('div');
-     el.className= 'marker';
-this.markerDriver = new mapboxgl.Marker(el);
-this.markerDriver.setLngLat(coords).addTo(this.map);
+    const el = document.createElement('div');
+    el.className = 'marker';
+    this.markerDriver = new mapboxgl.Marker(el);
+    this.markerDriver.setLngLat(coords).addTo(this.map);
 }
 
 }
