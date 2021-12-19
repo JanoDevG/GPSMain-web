@@ -11,6 +11,8 @@ import {GerenteComponent} from './paginas/gerente/gerente.component';
 import {AuthGuard} from '../guards/auth.guard';
 import { FlotaComponent } from './paginas/flota/flota.component';
 import {AgregarFlotaComponent} from '../funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
+import {ReporteComponent} from './paginas/reporte/reporte.component';
+import {RegistrosComponent} from './paginas/registros/registros.component';
 
 const routes: Routes = [
   {
@@ -26,7 +28,9 @@ const routes: Routes = [
       {path: 'despacho/Destinos', component: DestinosComponent },
       {path: 'Flota', component: FlotaComponent },
       {path: 'agregar-flota', component: AgregarFlotaComponent },
+      {path: 'reporte', component: ReporteComponent },
       {path: 'Gerente', component: GerenteComponent },
+      {path: 'registro', component: RegistrosComponent },
       { path: '**', redirectTo: 'panel'}
 
 

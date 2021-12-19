@@ -1,0 +1,172 @@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <a class="dropdown-item">{{name}} {{apellidos}}</a>
+      </ul>
+      <button class="btn btn-danger" type="submit" [routerLink]="['/auth/login']" (click)="cerrarsesion()">Cerrar
+        Sesión
+      </button>
+    </div>
+  </div>
+</nav>
+<section>
+  <div class="container">
+    <div class="row">
+      <section class="bg-light py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <h1 class="font-weight-bold mb-0 text-center" >Bienvenido Supervisor {{name}}!!</h1>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+      <!--graficos-->
+      <div class="col-lg-17 my-3">
+        <div class="card rounded-0">
+          <div class="card-header bg-light">
+            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio</h6>
+          </div>
+          <div class="card-body pt-2">
+            <div class="d-flex border-bottom py-2">
+
+
+              <div class="container">
+
+                <ngx-charts-bar-vertical
+                  [view]="view"
+                  [scheme]="colorScheme"
+                  [results]="data"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)"
+                >
+                </ngx-charts-bar-vertical>
+
+
+
+
+              </div>
+
+
+
+            </div>
+            <button routerLink="/funciones/backoffice-control" class="btn btn-danger w-100">Gestionar</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-lg-17 my-3">
+        <div class="card rounded-0">
+          <div class="card-header bg-light">
+            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio</h6>
+          </div>
+          <div class="card-body pt-2">
+            <div class="d-flex border-bottom py-2">
+
+
+              <div class="container">
+
+                <ngx-charts-bar-vertical
+                  [view]="view"
+                  [scheme]="colorSchemes"
+                  [results]="datas"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)"
+                >
+                </ngx-charts-bar-vertical>
+
+
+
+
+              </div>
+
+
+
+            </div>
+            <button routerLink="/funciones/backoffice-control" class="btn btn-danger w-100">Gestionar</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-lg-17 my-3">
+        <div class="card rounded-0">
+          <div class="card-header bg-light">
+            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio</h6>
+          </div>
+          <div class="card-body pt-2">
+            <div class="d-flex border-bottom py-2">
+
+
+              <div class="container">
+
+                <ngx-charts-bar-vertical
+                  [view]="view"
+                  [scheme]="colorSchemes"
+                  [results]="datas"
+                  [gradient]="gradient"
+                  [xAxis]="showXAxis"
+                  [yAxis]="showYAxis"
+                  [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel"
+                  [showYAxisLabel]="showYAxisLabel"
+                  [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel"
+                  (select)="onSelect($event)"
+                >
+                </ngx-charts-bar-vertical>
+
+
+
+
+              </div>
+
+
+
+            </div>
+            <button routerLink="/funciones/backoffice-control" class="btn btn-danger w-100">Gestionar</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</section>
+

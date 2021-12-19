@@ -13,6 +13,9 @@ import { AgregarFlotaComponent } from './paginas/Flota/agregar-flota/agregar-flo
 import { VerComponent } from './paginas/despacho/ver/ver.component';
 import { HorarioComponent } from './paginas/despacho/horario/horario.component';
 import { DestinosComponent } from './paginas/despacho/destinos/destinos.component';
+import { ReporteComponent } from './paginas/reporte/reporte.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { RegistrosComponent } from './paginas/registros/registros.component';
 
 
 @NgModule({
@@ -27,11 +30,14 @@ import { DestinosComponent } from './paginas/despacho/destinos/destinos.componen
     VerComponent,
     HorarioComponent,
     DestinosComponent,
+    ReporteComponent,
+    RegistrosComponent,
   ],
   imports: [
     CommonModule,
     PanelRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule
   ]
 })
 export class PanelModule { }
