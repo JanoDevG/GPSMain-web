@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
             }, error => {
               console.error('no se puede guardar clientSecret para backffice: ' + error);
             });
-            this.router.navigate(['/panel/gerente']);
+            this.router.navigate(['/panel/reporte']);
             break;
         }
       }

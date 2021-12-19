@@ -3,7 +3,7 @@
     <div class="">
       <div class="card">
         <div class="card-body text-center">
-          <span class="titulo">Listado de destinos configurados para hoy</span>
+          <span class="titulo">Histórico de destinos</span>
           <table class="table table-striped w-100">
             <thead>
             <tr>
@@ -11,7 +11,7 @@
               <th scope="col">Final</th>
               <th scope="col">Fecha partida</th>
               <th scope="col">Fecha llegada</th>
-              <th scope="col"></th>
+              <th scope="col">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -22,9 +22,13 @@
                 las: {{viaje.coordenadas[0].hora}}:{{viaje.coordenadas[0].minuto}}:{{viaje.coordenadas[0].segundo}}Hrs.
               </td>
               <td *ngIf="viaje.coordenadas.length == 0">viaje aún no iniciado</td>
-              <td>Viaje aún no finaliza</td>
-              <td>
-                <button class="btn btn-danger m-sm-2" type="submit">Eliminar</button>
+              <td *ngIf="viaje.destino.fin == true">{{viaje.coordenadas[viaje.coordenadas.length - 1].dia}}/{{viaje.coordenadas[viaje.coordenadas.length - 1].mes}}/2021 a
+                las: {{viaje.coordenadas[viaje.coordenadas.length - 1].hora}}:{{viaje.coordenadas[viaje.coordenadas.length - 1].minuto}}:{{viaje.coordenadas[viaje.coordenadas.length - 1].segundo}}Hrs.</td>
+              <td *ngIf="viaje.destino.fin == false">Viaje aún no finalizado</td>
+              <td *ngIf="viaje.destino.fin == false">
+                <button (click)="eliminarViaje(viaje)" class="btn btn-danger m-sm-2" type="submit">Eliminar</button>
+              </td>
+              <td *ngIf="viaje.destino.fin == true">
               </td>
             </tbody>
           </table>

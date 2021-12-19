@@ -19,4 +19,6 @@ export class VerComponent implements OnInit {
     this.patent = String(localStorage.getItem('patente'));
   }
 
+
+
 }

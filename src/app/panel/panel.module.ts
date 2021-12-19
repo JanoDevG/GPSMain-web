@@ -9,13 +9,13 @@ import { EliminarEmpresaComponent } from './paginas/principal/eliminar-empresa/e
 import {FormsModule} from '@angular/forms';
 import { GerenteComponent } from './paginas/gerente/gerente.component';
 import { FlotaComponent } from './paginas/flota/flota.component';
-import { AgregarFlotaComponent } from './paginas/Flota/agregar-flota/agregar-flota.component';
 import { VerComponent } from './paginas/despacho/ver/ver.component';
 import { HorarioComponent } from './paginas/despacho/horario/horario.component';
 import { DestinosComponent } from './paginas/despacho/destinos/destinos.component';
 import { ReporteComponent } from './paginas/reporte/reporte.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { RegistrosComponent } from './paginas/registros/registros.component';
+import { AgregarFlotaComponent } from '../funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
 
 
 @NgModule({
