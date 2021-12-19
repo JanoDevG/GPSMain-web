@@ -22,7 +22,7 @@ export class RutaComponent implements OnInit {
               private coordinatesService: CoordenadasService) {
   }
 
-  viaje: Viaje = new Viaje(new Partida('', new Array<String>()), '', new Destino('', new Array<String>()), new Array<Coordenadas>());
+  viaje: Viaje = new Viaje(new Partida('', new Array<String>()), '', new Destino('', new Array<String>(), false), new Array<Coordenadas>());
 
 
   ngOnInit(): void {
@@ -50,9 +50,11 @@ export class RutaComponent implements OnInit {
       console.log('desde server: ' + String(new Date()), coords);
       this.MapcustomService.addMarkerCustom(coords);
       this.viaje.coordenadas.push(new Coordenadas(coords, date.getHours(), date.getMinutes(), date.getSeconds(), date.getDay(), date.getMonth()));
-
       this.coordinatesService.agregarCoordendas(this.viaje).subscribe();
     });
+    this.viaje.destino.fin = true;
+    // finalziar ruta
+    this.coordinatesService.agregarCoordendas(this.viaje).subscribe();
   }
 
   drawRoute(): void {
@@ -120,7 +122,8 @@ export class Partida {
 
 export class Destino {
   constructor(public destino: String,
-              public coordenadas: Array<String>) {
+              public coordenadas: Array<String>,
+              public fin: boolean) {
   }
 }
 
