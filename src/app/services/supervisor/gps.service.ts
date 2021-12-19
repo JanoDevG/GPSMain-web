@@ -80,5 +80,4 @@ export class GpsService {
   desactivarGPS(gps: GPS) {
     return this.http.put<ResponseString>(this.url + 'gps/invalidate-gps', gps, this.headersGPSGet());
   }
-
 }
