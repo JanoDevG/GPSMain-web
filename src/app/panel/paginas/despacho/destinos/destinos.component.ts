@@ -14,7 +14,7 @@ export class DestinosComponent implements OnInit {
 
   viajes: Array<Viaje> = new Array<Viaje>();
 
-
+p:number=1;
 
   ngOnInit(): void {
     localStorage.setItem('supervisorMail', 'ajgutierrez@bimbo.cl');

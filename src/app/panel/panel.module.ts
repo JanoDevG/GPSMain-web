@@ -16,6 +16,8 @@ import { DestinosComponent } from './paginas/despacho/destinos/destinos.componen
 import { ReporteComponent } from './paginas/reporte/reporte.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { RegistrosComponent } from './paginas/registros/registros.component';
+import { FiltroPipe } from './paginas/despacho/pipes/filtro.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -32,12 +34,15 @@ import { RegistrosComponent } from './paginas/registros/registros.component';
     DestinosComponent,
     ReporteComponent,
     RegistrosComponent,
+    FiltroPipe
+
   ],
   imports: [
     CommonModule,
     PanelRoutingModule,
     FormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    NgxPaginationModule
   ]
 })
 export class PanelModule { }

@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
             } else {
                 socket.emit('position', {coords});
             }
-        }, 17000)
+        }, 1000)
     })
 })
 
