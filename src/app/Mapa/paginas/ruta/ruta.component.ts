@@ -3,6 +3,7 @@ import {MapcustomService} from '../../../services/mapcustom.service';
 import {Socket} from 'ngx-socket-io';
 import {CoordenadasService} from '../../../services/supervisor/coordenate.service';
 import {ResponseString} from '../../../models/ResponseString';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'gpsmain-ruta',
@@ -19,10 +20,11 @@ export class RutaComponent implements OnInit {
 
   constructor(private MapcustomService: MapcustomService, private renderer2: Renderer2,
               private socket: Socket,
-              private coordinatesService: CoordenadasService) {
+              private coordinatesService: CoordenadasService,
+              private route: ActivatedRoute, private router: Router) {
   }
 
-  viaje: Viaje = new Viaje(new Partida('', new Array<String>()), '', new Destino('', new Array<String>()), new Array<Coordenadas>());
+  viaje: Viaje = new Viaje(new Partida('', new Array<String>()), '', new Destino('', new Array<String>(), false), new Array<Coordenadas>());
 
 
   ngOnInit(): void {
@@ -50,9 +52,11 @@ export class RutaComponent implements OnInit {
       console.log('desde server: ' + String(new Date()), coords);
       this.MapcustomService.addMarkerCustom(coords);
       this.viaje.coordenadas.push(new Coordenadas(coords, date.getHours(), date.getMinutes(), date.getSeconds(), date.getDay(), date.getMonth()));
-
       this.coordinatesService.agregarCoordendas(this.viaje).subscribe();
     });
+    this.viaje.destino.fin = true;
+    // finalziar ruta
+    this.coordinatesService.agregarCoordendas(this.viaje).subscribe();
   }
 
   drawRoute(): void {
@@ -67,6 +71,7 @@ export class RutaComponent implements OnInit {
     this.viaje.destino.destino = this.wayPoints.end.place_name_es;
     this.viaje.destino.coordenadas = this.wayPoints.end.center;
     this.viaje.patente = String(localStorage.getItem('patente'));
+    this.viaje.destino.fin = false;
     this.coordinatesService.crearRuta(this.viaje).subscribe();
   }
 
@@ -96,6 +101,12 @@ export class RutaComponent implements OnInit {
   guardarRuta() {
     alert('Ruta guardada.');
   }
+
+  volver(){
+    this.viaje.destino.fin = true;
+    this.coordinatesService.agregarCoordendas(this.viaje).subscribe();
+    this.router.navigate(['/panel/despacho/Ver']);
+  }
 }
 
 export class Waypoints {
@@ -120,7 +131,8 @@ export class Partida {
 
 export class Destino {
   constructor(public destino: String,
-              public coordenadas: Array<String>) {
+              public coordenadas: Array<String>,
+              public fin: boolean) {
   }
 }
 

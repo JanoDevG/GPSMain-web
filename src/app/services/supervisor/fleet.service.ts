@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Fleet, ListFleetsResponse} from '../../models/Fleet';
 import {ResponseString} from '../../models/ResponseString';
-import {ResponseViaje} from 'src/app/Mapa/paginas/ruta/ruta.component';
+import {ResponseViaje, Viaje} from 'src/app/Mapa/paginas/ruta/ruta.component';
 
 @Injectable({
   providedIn: 'root'
@@ -120,6 +120,10 @@ export class FleetService {
 
   removerGPS(fleet: Fleet) {
     return this.http.post<ResponseString>(this.url + 'fleet/remove-gps', null, this.assignedGPS(fleet, 'REMOVE'));
+  }
+
+  eliminarviaje(viaje: Viaje, patente: String) {
+    return this.http.post<ResponseString>(this.url + 'gps/delete-trip', viaje, this.headersGetFleet());
   }
 
 }
