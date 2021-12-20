@@ -12,11 +12,13 @@ import { FlotaComponent } from './paginas/flota/flota.component';
 import { VerComponent } from './paginas/despacho/ver/ver.component';
 import { HorarioComponent } from './paginas/despacho/horario/horario.component';
 import { DestinosComponent } from './paginas/despacho/destinos/destinos.component';
-import { ReporteComponent } from './paginas/reporte/reporte.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
-import { RegistrosComponent } from './paginas/registros/registros.component';
-import { FiltroPipe } from './paginas/despacho/pipes/filtro.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {ReporteComponent} from './paginas/reporte/reporte.component';
+import {RegistrosComponent} from './paginas/registros/registros.component';
+import {AgregarFlotaComponent} from '../funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
+import {MostrarComponent} from './paginas/registros/mostrar/mostrar.component';
+
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DestinosComponent,
     ReporteComponent,
     RegistrosComponent,
-    FiltroPipe
+    VerComponent,
+    MostrarComponent
+
 
   ],
   imports: [

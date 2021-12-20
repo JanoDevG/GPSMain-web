@@ -83,7 +83,7 @@
       <div class="col-lg-17 my-3">
         <div class="card rounded-0">
           <div class="card-header bg-light">
-            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio</h6>
+            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio Diaria</h6>
           </div>
           <div class="card-body pt-2">
             <div class="d-flex border-bottom py-2">
@@ -101,8 +101,8 @@
                   [legend]="showLegend"
                   [showXAxisLabel]="showXAxisLabel"
                   [showYAxisLabel]="showYAxisLabel"
-                  [xAxisLabel]="xAxisLabel"
-                  [yAxisLabel]="yAxisLabel"
+                  [xAxisLabel]="xAxisLabel2"
+                  [yAxisLabel]="yAxisLabel2"
                   (select)="onSelect($event)"
                 >
                 </ngx-charts-bar-vertical>
@@ -126,7 +126,7 @@
       <div class="col-lg-17 my-3">
         <div class="card rounded-0">
           <div class="card-header bg-light">
-            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio</h6>
+            <h6 class="font-weight-bold mb-0 text-center">Velocidad Promedio Entre Destinos</h6>
           </div>
           <div class="card-body pt-2">
             <div class="d-flex border-bottom py-2">
@@ -136,8 +136,8 @@
 
                 <ngx-charts-bar-vertical
                   [view]="view"
-                  [scheme]="colorSchemes"
-                  [results]="datas"
+                  [scheme]="colorSchemess"
+                  [results]="datass"
                   [gradient]="gradient"
                   [xAxis]="showXAxis"
                   [yAxis]="showYAxis"

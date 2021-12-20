@@ -13,6 +13,7 @@ import { FlotaComponent } from './paginas/flota/flota.component';
 import {AgregarFlotaComponent} from '../funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
 import {ReporteComponent} from './paginas/reporte/reporte.component';
 import {RegistrosComponent} from './paginas/registros/registros.component';
+import {MostrarComponent} from "./paginas/registros/mostrar/mostrar.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path: 'despacho/Ver', component: VerComponent },
       {path: 'despacho/Horario', component: HorarioComponent },
       {path: 'despacho/Destinos', component: DestinosComponent },
+      {path: 'registro/mostrar', component: MostrarComponent },
       {path: 'Flota', component: FlotaComponent },
       {path: 'agregar-flota', component: AgregarFlotaComponent },
       {path: 'reporte', component: ReporteComponent },

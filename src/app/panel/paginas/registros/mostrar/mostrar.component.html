@@ -4,7 +4,7 @@
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <div class="card-body text-center">
-          <span class="titulo">Listado Usuarios</span>
+          <span class="titulo">Listado De acciones Usuario:</span>
 
 
           <table class="table table-striped mt-5 ">
@@ -12,6 +12,7 @@
             <tr>
               <th scope="col">Nombre del usuario </th>
               <th scope="col">Cargo</th>
+              <th scope="col">accion</th>
 
               <th>
             </tr>
@@ -20,23 +21,17 @@
             <tr>
               <td></td>
               <td></td>
+              <td></td>
+              <td></td>
 
 
-
-              <div class="wrapper">
-                <button routerLink="/panel/registro/mostrar" class=" btn-success btn-lg float-start">VER</button>
-              </div>
 
 
 
             </tbody>
           </table>
-
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-
         </div>
-        <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
+        <button routerLink="/panel/registro" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
       </div>
     </div>
   </div>

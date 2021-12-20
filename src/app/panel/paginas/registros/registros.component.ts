@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrosComponent implements OnInit {
 
+
+
   constructor() { }
+  p: number  =1;
+
+
 
   ngOnInit(): void {
   }

@@ -2,38 +2,35 @@ import { IBarChart, ILineChart } from './charts.interface';
 
 export const DATA_BAR_CHAR: IBarChart[] = [
 	{
-		name: 'alemania',
-		value: 40632,
+		name: 'Ramon parraguez',
+		value: 63,
 		extra: {
 			code: 'de'
 		}
 	},
   {
-    name: 'Germassny',
-    value: 40632,
+    name: 'Jose Quezada ',
+    value: 70,
     extra: {
       code: 'de'
     }
   },
   {
-    name: 'noruega',
-    value: 40632,
+    name: 'Manuel Guerrero ',
+    value: 92,
     extra: {
       code: 'de'
     }
-  }, {
-    name: 'victor macias',
-    value: 40632,
-    extra: {
-      code: 'de'
-    }
-  }, {
-    name: 'ramon parraguez',
-    value: 40632,
-    extra: {
-      code: 'de'
-    }
-  },
+  }
+];
+export const DATA_BAR_CHARR: IBarChart[] = [
+	{
+		name: 'Germany',
+		value: 14000,
+		extra: {
+			code: 'de'
+		}
+	},
 	{
 		name: 'United States',
 		value: 50000,
@@ -43,7 +40,7 @@ export const DATA_BAR_CHAR: IBarChart[] = [
 	},
 	{
 		name: 'France',
-		value: 36745,
+		value: 12000,
 		extra: {
 			code: 'fr'
 		}
@@ -57,26 +54,20 @@ export const DATA_BAR_CHAR: IBarChart[] = [
 	},
 	{
 		name: 'Spain',
-		value: 33000,
+		value: 45000,
 		extra: {
 			code: 'es'
 		}
 	},
 	{
 		name: 'Italy',
-		value: 5000,
+		value: 30000,
 		extra: {
 			code: 'it'
 		}
-	},	{
-    name: 'Italy',
-    value: 5000,
-    extra: {
-      code: 'it'
-    }
-  }
+	}
 ];
-export const DATA_BAR_CHARR: IBarChart[] = [
+export const DATA_BAR_CHARRR: IBarChart[] = [
 	{
 		name: 'Germany',
 		value: 14000,

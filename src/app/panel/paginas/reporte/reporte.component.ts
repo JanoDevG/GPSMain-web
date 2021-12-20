@@ -4,6 +4,7 @@ import { IBarChart } from 'src/app/models/charts.interface';
 
 import { DATA_BAR_CHAR } from 'src/app/models/data-charts';
 import { DATA_BAR_CHARR } from 'src/app/models/data-charts';
+import { DATA_BAR_CHARRR } from 'src/app/models/data-charts';
 
 
 
@@ -44,6 +45,7 @@ export class ReporteComponent implements OnInit {
 
   data: IBarChart[] = [];
   datas: IBarChart[] = [];
+  datass: IBarChart[] = [];
 
   view: [number, number] = [1200, 300];
 
@@ -53,9 +55,19 @@ export class ReporteComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Conductor';
   showYAxisLabel = true;
-  yAxisLabel = 'velocidad K/M';
+
+
+  xAxisLabel = 'Conductores';
+  yAxisLabel = 'velocidad K/M Entre viajes';
+
+  xAxisLabel2 = 'Conductores';
+  yAxisLabel2 = 'Promedio k/m Promedio Diaria';
+
+  xAxisLabel3 = 'Conductores';
+  yAxisLabel3 = 'ALGOOOOOO';
+
+
 
   colorScheme = {
     domain: ['#21d912', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -65,14 +77,19 @@ export class ReporteComponent implements OnInit {
     domain: ['#e0572e', '#360f72', '#18699b', '#911a1a']
   };
 
+  colorSchemess = {
+    domain: ['rgba(238,25,181,0.2)', '#0eb92a', '#286185', '#28a8ad']
+  };
+
   ngOnInit(): void {
     this.data = DATA_BAR_CHAR;
     this.datas = DATA_BAR_CHARR;
+    this.datass = DATA_BAR_CHARR;
     setTimeout(() => {
       console.log('******');
       const dataPeru = {
-        name: 'Perú',
-        value: 2000,
+        name: 'alejandro gutierrez',
+        value: 51,
         extra: {
           code: 'pe'
         }
