@@ -12,6 +12,8 @@ export class LogsComponent implements OnInit {
   constructor(private apiAccout: AccountService) {
   }
 
+  p: number = 1;
+
   account: account = new account('', '', '', new Array<Activity>(), new Array<GPS>(), '', '', '', '');
 
 

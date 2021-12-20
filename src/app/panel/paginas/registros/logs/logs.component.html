@@ -15,12 +15,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let log of account.activity">
+            <tr *ngFor="let log of account.activity | paginate:{itemsPerPage:5,currentPage:p}">
               <td>{{log.timestamp}}</td>
               <td>{{log.activityTitle}}</td>
               <td>{{log.description}}</td>
             </tbody>
           </table>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
         <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start">Volver</button>
       </div>
