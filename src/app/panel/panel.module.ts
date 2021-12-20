@@ -18,6 +18,7 @@ import { RegistrosComponent } from './paginas/registros/registros.component';
 import { FiltroPipe } from './paginas/despacho/pipes/filtro.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AgregarFlotaComponent } from '../funciones/paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
+import { LogsComponent } from './paginas/registros/logs/logs.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AgregarFlotaComponent } from '../funciones/paginas/usuarios/control-veh
     DestinosComponent,
     ReporteComponent,
     RegistrosComponent,
-    FiltroPipe
+    FiltroPipe,
+    LogsComponent
 
   ],
   imports: [

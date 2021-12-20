@@ -8,20 +8,17 @@
           <table class="table table-striped mt-5 ">
             <thead>
             <tr>
-              <th scope="col">Nombre Personal</th>
-              <th scope="col">Cargo</th>
-              <th scope="col">Opciones</th>
+              <th scope="col">Fecha Registrada</th>
+              <th scope="col">Título Actividad</th>
+              <th scope="col">Descripción</th>
               <th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let account of users">
-              <td>{{account.names}} {{account.surnames}}</td>
-              <td>{{account.profile}}</td>
-              <td>
-                <button (click)="verLogs(account)" class="btn btn btn-success btn-lg float-start">Consultar Registros
-                </button>
-              </td>
+            <tr *ngFor="let log of account.activity">
+              <td>{{log.timestamp}}</td>
+              <td>{{log.activityTitle}}</td>
+              <td>{{log.description}}</td>
             </tbody>
           </table>
         </div>

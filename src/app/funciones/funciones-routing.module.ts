@@ -11,6 +11,7 @@ import {AgregarGerentesComponent} from './paginas/usuarios/control-gerentes/agre
 import {ControlGpsComponent} from './paginas/usuarios/control-gps/control-gps.component';
 import {AgregarGpsComponent} from './paginas/usuarios/control-gps/agregar-gps/agregar-gps.component';
 import {AgregarFlotaComponent} from './paginas/usuarios/control-vehiculos/agregar-flota/agregar-flota.component';
+import {GestionarGpsComponent} from './paginas/usuarios/control-backoffice/gestionar-gps/gestionar-gps.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
       {path: 'gerentes-agregar', component: AgregarGerentesComponent},
       {path: 'gps-control', component: ControlGpsComponent},
       {path: 'gps-agregar', component: AgregarGpsComponent},
+      {path: 'gestionar-gps', component: GestionarGpsComponent}
     ]
   }
 ];

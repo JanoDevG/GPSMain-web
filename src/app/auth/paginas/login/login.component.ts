@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
           case 'backoffice':
             this.apilogin.getClietnSecret(response.body).subscribe(value => {
               localStorage.setItem('clientSecret', String(value.body));
+              localStorage.setItem('mailAccount', String(response.body.mail));
             }, error => {
               console.error('no se puede guardar clientSecret para backffice: ' + error);
             });
@@ -60,6 +61,7 @@ export class LoginComponent implements OnInit {
           case 'manager':
             this.apilogin.getClietnSecret(response.body).subscribe(value => {
               localStorage.setItem('clientSecret', String(value.body));
+              localStorage.setItem('mailAccount', String(response.body.mail));
             }, error => {
               console.error('no se puede guardar clientSecret para backffice: ' + error);
             });

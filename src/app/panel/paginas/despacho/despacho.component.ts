@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Fleet} from '../../../models/Fleet';
 import {FleetService} from '../../../services/supervisor/fleet.service';
 import {GpsService} from '../../../services/supervisor/gps.service';
-import {GPS} from '../../../models/account';
 import {Router} from '@angular/router';
+import {AccountService} from '../../../services/supervisor/account.service';
 
 @Component({
   selector: 'gpsmain-despacho',
@@ -18,22 +18,16 @@ export class DespachoComponent implements OnInit {
   }
 
   flotas: Array<Fleet> = new Array<Fleet>();
-  gPSs: Array<GPS> = new Array<GPS>();
   nameBackoffice: String = '';
 
   ngOnInit(): void {
     this.nameBackoffice = String(localStorage.getItem('clave'));
 
-    this.apiFleet.obtenerFlotas().subscribe(value => {
+    this.apiFleet.obtenerFlotaPorBackoffice().subscribe(value => {
       this.flotas = value.body;
     }, error => {
       console.log('No se pueden obtener flotas: ' + error);
     });
-
-    this.apiGPS.obtenerGPSs().subscribe(res => {
-      this.gPSs = res.body;
-    }, error => console.error('no se puede obtener lista de gps' + error));
-
 
   }
 

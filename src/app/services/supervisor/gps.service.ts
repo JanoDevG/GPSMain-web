@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, observable} from 'rxjs';
-import {Usuario} from '../../models/usuario';
-import {account, GPS} from '../../models/account';
+import {GPS} from '../../models/account';
 import {GPSResponse} from '../../funciones/paginas/usuarios/control-gps/GPSResponse';
 import {ResponseString} from '../../models/ResponseString';
+import {GPSAccountAndBusinessResponse} from '../../funciones/paginas/usuarios/control-backoffice/gestionar-gps/gestionar-gps.component';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +60,32 @@ export class GpsService {
     return requestOptions;
   }
 
+  private HeaderGPSss() {
+    let headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+      'Xmail': String(localStorage.getItem('supervisorMail')),
+      'XmailAccount': String(localStorage.getItem('correoCuenta'))
+    };
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return requestOptions;
+  }
+
+  private headerAsignarGPS(gpsId: String) {
+    let headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+      'XgpsId': String(gpsId),
+      'XmailAccount': String(localStorage.getItem('correoCuenta'))
+    };
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return requestOptions;
+  }
+
   obtenerGPSs() {
     return this.http.get<GPSResponse>(this.url + 'gps/get-all-gps', this.headersGPSGet());
   }
@@ -79,5 +104,17 @@ export class GpsService {
 
   desactivarGPS(gps: GPS) {
     return this.http.put<ResponseString>(this.url + 'gps/invalidate-gps', gps, this.headersGPSGet());
+  }
+
+  asignarGPS(gps: GPS) {
+    return this.http.put<ResponseString>(this.url + 'gps/assign-gps', null, this.headerAsignarGPS(gps._id));
+  }
+
+  removerGPS(gps: GPS) {
+    return this.http.put<ResponseString>(this.url + 'gps/remove-gps', null, this.headerAsignarGPS(gps._id));
+  }
+
+  traerGPSs() {
+    return this.http.get<GPSAccountAndBusinessResponse>(this.url + 'gps/get-gps-account-and-business', this.HeaderGPSss());
   }
 }

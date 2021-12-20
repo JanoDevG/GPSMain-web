@@ -1,0 +1,59 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Dispositivos vinculados a Backoffice</span>
+          <table class="table table-striped mt-5 ">
+            <thead>
+            <tr>
+              <th scope="col">Id GPS</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Instalación</th>
+              <th scope="col">Opciones</th>
+              <th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let gps of gpss.gpsAccount">
+              <td>{{gps._id}}</td>
+              <td *ngIf="gps.isActive === true">GPS Activado</td>
+              <td *ngIf="gps.isActive === false">GPS Desactivado</td>
+              <td *ngIf="gps.isInstalled === true">GPS Instalado</td>
+              <td *ngIf="gps.isInstalled === false">GPS no instalado</td>
+              <td>
+                <button class="btn btn-danger m-sm-2" type="submit" (click)="removerGPS(gps)">Remover GPS</button>
+              </td>
+            </tbody>
+          </table>
+          <span class="titulo">Dispositivos De la organización</span>
+          <table class="table table-striped mt-5 ">
+            <thead>
+            <tr>
+              <th scope="col">Id GPS</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Instalación</th>
+              <th scope="col">Opciones</th>
+              <th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <tr *ngFor="let gps of gpss.gpsBusiness">
+              <td>{{gps._id}}</td>
+              <td *ngIf="gps.isActive === true">GPS Activado</td>
+              <td *ngIf="gps.isActive === false">GPS Desactivado</td>
+              <td *ngIf="gps.isInstalled === true">GPS Instalado</td>
+              <td *ngIf="gps.isInstalled === false">GPS no instalado</td>
+              <td>
+                <button class="btn btn-success m-sm-2" type="submit" (click)="asignarGPS(gps)">Asginar GPS</button>
+              </td>
+            </tbody>
+          </table>
+        </div>
+        <button routerLink="/panel/supervisor" class="btn btn btn-secondary btn-lg float-start"> Volver</button>
+      </div>
+    </div>
+  </div>
+</div>

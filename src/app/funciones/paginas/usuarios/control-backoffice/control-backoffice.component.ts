@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {account, Activity, GPS} from '../../../../models/account';
+import {account} from '../../../../models/account';
 import {AccountService} from '../../../../services/supervisor/account.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ListAccount} from './ListAccount';
+import {GpsService} from '../../../../services/supervisor/gps.service';
 
 @Component({
   selector: 'gpsmain-control-backoffice',
@@ -21,6 +21,11 @@ export class ControlBackofficeComponent implements OnInit {
     this.apiAccount.getAccounts('backoffice').subscribe(value => {
       this.accounts = value.body;
     });
+  }
+
+  gestionarGPS(account: account) {
+    localStorage.setItem('correoCuenta', String(account.mail));
+    this.router.navigate(['/funciones/gestionar-gps']);
   }
 
   eliminarCuenta(account: account) {

@@ -63,13 +63,13 @@
                     <td>{{fleet.patent}}</td>
                     <td *ngIf="fleet.gpsAssigned === null">No</td>
                     <td *ngIf="fleet.gpsAssigned != '' && fleet.gpsAssigned != null">Si</td>
-                    <td *ngIf="fleet.gpsAssigned == null">
+                    <td *ngIf="fleet.gpsAssigned == null || fleet.statusGPS == false">
                       <h6 class="text-danger"><i class="fas fa-circle"></i></h6>
                     </td>
-                    <td *ngIf="fleet.gpsAssigned != null">
+                    <td *ngIf="fleet.gpsAssigned != null && fleet.statusGPS == true">
                       <h6 class="text-success"><i class="fas fa-circle"></i></h6>
                     </td>
-                    <td *ngIf="fleet.gpsAssigned != null">
+                    <td *ngIf="fleet.gpsAssigned != null && fleet.statusGPS == true">
                       <button (click)="gestionarFlota(fleet)" class="btn btn-success float-end">Gestionar Flota</button>
                     </td>
                   </tr>

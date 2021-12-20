@@ -40,6 +40,18 @@ export class FleetService {
     return requestOptions;
   }
 
+  private headersFlotasPorBackoffice() {
+    let headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+      'XmailAccount': String(localStorage.getItem('mailAccount')),
+    };
+    let requestOptions = {
+      headers: new HttpHeaders(headers),
+    };
+    return requestOptions;
+  }
+
   private assignedGPS(fleet: Fleet, option: String) {
     let headers;
     if (option == 'ASSIGNER') {
@@ -106,6 +118,10 @@ export class FleetService {
     return this.http.get<ListFleetsResponse>(this.url + 'fleet/get-all-fleets', this.headersGetAllFleets());
   }
 
+  obtenerFlotaPorBackoffice() {
+    return this.http.get<resFleets>(this.url + 'fleet/get-fleets-backoffice', this.headersFlotasPorBackoffice());
+  }
+
   crearFlota(fleet: Fleet) {
     return this.http.post<ResponseString>(this.url + 'fleet/create-fleet', fleet, this.headersCD(fleet, 'CREATE'));
   }
@@ -126,4 +142,10 @@ export class FleetService {
     return this.http.post<ResponseString>(this.url + 'gps/delete-trip', viaje, this.headersGetFleet());
   }
 
+}
+
+export class resFleets {
+  constructor(public status: String,
+              public body: Array<Fleet>) {
+  }
 }

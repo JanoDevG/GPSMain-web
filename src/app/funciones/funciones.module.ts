@@ -12,6 +12,7 @@ import { ControlGerentesComponent } from './paginas/usuarios/control-gerentes/co
 import { AgregarGerentesComponent } from './paginas/usuarios/control-gerentes/agregar-gerentes/agregar-gerentes.component';
 import { ControlGpsComponent } from './paginas/usuarios/control-gps/control-gps.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { GestionarGpsComponent } from './paginas/usuarios/control-backoffice/gestionar-gps/gestionar-gps.component';
 
 
 
@@ -26,6 +27,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ControlGerentesComponent,
     AgregarGerentesComponent,
     ControlGpsComponent,
+    GestionarGpsComponent,
 
   ],
     imports: [
